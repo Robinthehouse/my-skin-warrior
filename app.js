@@ -127,15 +127,11 @@
     // Autoplay anstoßen (manche Browser brauchen einen expliziten play()-Aufruf)
     function tryPlay() { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
 
-    // Video als Blob in den Speicher laden und daraus abspielen. Das umgeht
-    // Server, die MP4 nicht als Media-Stream (mit Range-Support) ausliefern —
-    // und vermeidet einen fehlgeschlagenen nativen Ladeversuch in der Vorschau.
     var src = video.getAttribute('data-src');
     if (src) {
-      fetch(src)
-        .then(function (r) { return r.blob(); })
-        .then(function (b) { video.src = URL.createObjectURL(b); video.load(); tryPlay(); })
-        .catch(function () {});
+      video.src = src;
+      video.load();
+      tryPlay();
     }
     video.addEventListener('canplay', tryPlay, { once: true });
     document.addEventListener('visibilitychange', function () { if (!document.hidden) tryPlay(); });
