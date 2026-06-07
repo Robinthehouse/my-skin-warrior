@@ -1,0 +1,88 @@
+/* ============================================================
+   MY SKIN WARRIOR — Landingpage Tokens
+   Palette & Typo nach Gründer-Briefing (Terracotta/Petrol auf Papier),
+   abgestimmt auf die echten Heft-Cover.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,900&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* ---- Brand palette (Briefing — exakt) ---- */
+  --paper:        #FAF5EF; /* Hintergrund */
+  --paper-deep:   #F6EFE6; /* leicht tiefere Papierfläche */
+  --espresso:     #2B2420; /* Text / Ink-CTA */
+  --espresso-2:   #3A322C; /* hover ink */
+  --terracotta:   #BD5A40; /* Primär-Akzent */
+  --terracotta-ink:#9E4630; /* kleiner Terracotta-Text (Kontrast) */
+  --terracotta-press:#A24A33;
+  --petrol:       #2E6E68; /* Sekundär-Akzent */
+  --petrol-press: #255C57;
+  --sand:         #F1E9DF; /* Fläche */
+  --blush:        #F3E0D2; /* Fläche warm */
+  --taupe:        #9C8B7E; /* gedämpft / meta */
+
+  /* ---- Akzent (per Tweak überschreibbar — Ink/Press werden abgeleitet) ---- */
+  --accent:       var(--terracotta);
+  --accent-ink:   color-mix(in srgb, var(--accent) 84%, #1a0e08);
+  --accent-press: color-mix(in srgb, var(--accent) 88%, #1a0e08);
+
+  /* ---- Semantische Vordergründe ---- */
+  --fg1: var(--espresso);
+  --fg2: rgba(43, 36, 32, 0.70);
+  --fg3: rgba(43, 36, 32, 0.50);
+  --fg-on-ink: #FBF6F0;
+
+  /* ---- Linien ---- */
+  --line:      rgba(43, 36, 32, 0.12);
+  --line-soft: rgba(43, 36, 32, 0.07);
+  --line-accent: rgba(189, 90, 64, 0.30);
+
+  /* ---- Schrift ---- */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Hanken Grotesk', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, monospace;
+
+  /* ---- Typoskala ---- */
+  --text-xs:   0.78rem;
+  --text-sm:   0.9rem;
+  --text-base: 1.0625rem;
+  --text-md:   1.2rem;
+  --text-lg:   1.5rem;
+  --text-xl:   2rem;
+  --text-2xl:  2.75rem;
+  --text-3xl:  3.75rem;
+  --text-4xl:  5rem;
+
+  /* ---- Zeilen / Tracking ---- */
+  --lh-tight: 1.02;
+  --lh-snug:  1.12;
+  --lh-body:  1.62;
+  --lh-loose: 1.72;
+  --ls-tight: -0.02em;
+  --ls-label: 0.18em;
+
+  /* ---- 8px Raster ---- */
+  --s1: 4px; --s2: 8px; --s3: 16px; --s4: 24px; --s5: 32px;
+  --s6: 48px; --s7: 64px; --s8: 96px; --s9: 128px; --s10: 168px;
+
+  /* ---- Radien ---- */
+  --r-btn:   11px;
+  --r-card:  14px;
+  --r-panel: 20px;
+  --r-pill:  50px;
+
+  /* ---- Schatten (weich, warm) ---- */
+  --sh-sm:     0 1px 2px rgba(43, 36, 32, 0.05);
+  --sh-card:   0 4px 18px rgba(43, 36, 32, 0.06), 0 1px 3px rgba(43, 36, 32, 0.05);
+  --sh-lift:   0 18px 48px rgba(43, 36, 32, 0.12), 0 4px 12px rgba(43, 36, 32, 0.06);
+
+  /* ---- Motion ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 240ms;
+  --motion: 1; /* per Tweak: 0 = reduziert */
+
+  /* ---- Layout ---- */
+  --maxw-prose: 680px;
+  --maxw-page:  1180px;
+}

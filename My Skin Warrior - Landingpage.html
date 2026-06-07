@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Skin Warrior — Über das, worüber keiner spricht</title>
+<meta name="description" content="Fünf ehrliche Hefte für Menschen mit Akne inversa (Hidradenitis suppurativa). Keine Ratgeber. Eher ein Brief von jemandem, der es kennt.">
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-screen-label="Landingpage">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top" aria-label="My Skin Warrior — Startseite">
+      <img src="assets/logo.png" alt="">
+      <span class="wordmark">My Skin Warrior<span class="dot">.</span></span>
+    </a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="#reihe">Die Hefte</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-accent btn-sm" href="#gratis">Gratis-Heft</a>
+      <button class="menu-toggle" aria-label="Zu den Heften springen"><i data-lucide="menu"></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow reveal">Über das, worüber keiner spricht</p>
+        <h1 class="display hero-display reveal" style="--rd:60ms">Über das, was du nachts denkst&nbsp;– <em>und keinem sagst.</em></h1>
+        <p class="lead hero-sub reveal" style="--rd:120ms">Fünf ehrliche Hefte für Menschen mit Akne inversa. Keine Ratgeber. Eher ein Brief von jemandem, der es kennt.</p>
+        <div class="hero-cta reveal" style="--rd:180ms">
+          <a class="btn btn-accent btn-lg" href="#gratis">Gratis-Heft sichern</a>
+          <a class="btn btn-ink btn-lg" href="#reihe">Komplette Reihe&nbsp;· 19,50&nbsp;€</a>
+        </div>
+        <div class="hero-trust reveal small" style="--rd:240ms">
+          <span>Sofortiger PDF-Download</span>
+          <span class="dotsep">·</span>
+          <span>Sichere Zahlung über Gumroad</span>
+        </div>
+      </div>
+      <div class="cover-fan reveal" style="--rd:120ms" aria-hidden="false">
+        <img class="swirl-bg" src="assets/logo.png" alt="">
+        <span class="fan-badge">Heft 01 · Gratis</span>
+        <figure class="fan-card c2"><img src="assets/covers/cover-03.jpg" alt="Heft 03 — Was die Wunden mit dem Kopf machen"></figure>
+        <figure class="fan-card c3"><img src="assets/covers/cover-02.jpg" alt="Heft 02 — Keiner riecht, was du riechst"></figure>
+        <figure class="fan-card c1"><img src="assets/covers/cover-01.jpg" alt="Heft 01 — Näher, als du denkst"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO-BANNER ============ -->
+  <section class="video-banner" aria-label="Vorschau-Video">
+    <video class="vb-video" autoplay muted loop playsinline preload="auto" poster="assets/video-poster.png" data-src="assets/werbevideo.mp4"></video>
+    <button class="vb-sound" type="button" aria-pressed="false" aria-label="Ton einschalten">
+      <i data-lucide="volume-x"></i><span class="vb-sound-label">Ton an</span>
+    </button>
+  </section>
+
+  <!-- ============ EMPATHIE ============ -->
+  <section class="empathie">
+    <div class="wrap prose">
+      <p class="reveal">Vielleicht kennst du das: Du sagst einen Termin ab, weil heute nichts an deine Haut darf. Du rechnest beim Umarmen aus, welche Seite gerade geht. Und manchmal denkst du leise: <strong>so würde mich niemand wollen.</strong></p>
+      <p class="reveal" style="--rd:80ms">Du bildest dir nichts ein. Und du bist damit nicht allein. <strong>Akne inversa ist eine medizinische Erkrankung. Kein Hygieneproblem. Nicht deine Schuld.</strong></p>
+      <blockquote class="pullquote reveal" style="--rd:120ms">
+        <p class="serif-italic">Das Schwerste an dieser Krankheit ist oft nicht die Wunde. Es ist das Gefühl, mit allem allein zu sein.</p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ KARUSSELL ============ -->
+  <section class="serie">
+    <div class="wrap">
+      <div class="serie-head">
+        <div>
+          <p class="eyebrow reveal">Die Reihe</p>
+          <h2 class="h2 reveal" style="--rd:60ms">Fünf Hefte. Fünf Themen, die keiner anfasst.</h2>
+        </div>
+        <div class="carousel-controls reveal" style="--rd:120ms">
+          <button class="carousel-btn" data-car="prev" aria-label="Vorheriges Heft"><i data-lucide="arrow-left"></i></button>
+          <button class="carousel-btn" data-car="next" aria-label="Nächstes Heft"><i data-lucide="arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="carousel-viewport reveal" style="--rd:80ms">
+        <article class="heft-card" data-target="#gratis" tabindex="0" aria-label="Heft 01 — Näher, als du denkst, gratis">
+          <div class="heft-cover">
+            <img src="assets/covers/cover-01.jpg" alt="Heft 01 — Näher, als du denkst">
+            <span class="heft-badge free">Gratis</span>
+          </div>
+        </article>
+
+        <article class="heft-card" data-target="#reihe" tabindex="0" aria-label="Heft 02 — Keiner riecht, was du riechst">
+          <div class="heft-cover">
+            <img src="assets/covers/cover-02.jpg" alt="Heft 02 — Keiner riecht, was du riechst">
+          </div>
+        </article>
+
+        <article class="heft-card" data-target="#reihe" tabindex="0" aria-label="Heft 03 — Was die Wunden mit dem Kopf machen">
+          <div class="heft-cover">
+            <img src="assets/covers/cover-03.jpg" alt="Heft 03 — Was die Wunden mit dem Kopf machen">
+          </div>
+        </article>
+
+        <article class="heft-card" data-target="#reihe" tabindex="0" aria-label="Heft 04 — Du hast dir das nicht angetan">
+          <div class="heft-cover">
+            <img src="assets/covers/cover-04.jpg" alt="Heft 04 — Du hast dir das nicht angetan">
+          </div>
+        </article>
+
+        <article class="heft-card" data-target="#reihe" tabindex="0" aria-label="Heft 05 — Wenn keiner versteht, was los ist">
+          <div class="heft-cover">
+            <img src="assets/covers/cover-05.jpg" alt="Heft 05 — Wenn keiner versteht, was los ist">
+          </div>
+        </article>
+      </div>
+      <div class="carousel-dots" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ============ BUNDLE ============ -->
+  <section class="bundle" id="reihe">
+    <div class="wrap">
+      <div class="bundle-card reveal">
+        <div class="bundle-main">
+          <p class="eyebrow">Die komplette Reihe</p>
+          <h2 class="h2">Alle fünf Hefte. Für dich, zum Behalten.</h2>
+          <p class="lead" style="margin-top:var(--s4)">Fünf Hefte über die Dinge, die im Sprechzimmer keinen Platz haben: Nähe, Geruch, Scham, Schuld und das Alleinsein. Ehrlich geschrieben, ruhig gestaltet.</p>
+          <ul class="checklist">
+            <li><i class="ic" data-lucide="check"></i><span>Alle 5 Hefte als PDF (A5)</span></li>
+            <li><i class="ic" data-lucide="check"></i><span>Sofort herunterladbar nach dem Kauf</span></li>
+            <li><i class="ic" data-lucide="check"></i><span>Für Bildschirm und Druck gemacht</span></li>
+            <li><i class="ic" data-lucide="check"></i><span>Würdevoll, ehrlich, research-backed</span></li>
+            <li><i class="ic" data-lucide="check"></i><span>Einmal zahlen, für immer behalten</span></li>
+          </ul>
+        </div>
+        <aside class="bundle-aside">
+          <p class="eyebrow kicker-petrol">Bundle · alle 5 Hefte</p>
+          <div class="price-row">
+            <span class="price">19,50&nbsp;€</span>
+          </div>
+          <p class="price-unit">einmalig · ca. 3,90&nbsp;€ pro Heft</p>
+          <p class="price-note">Sofortiger PDF-Download direkt nach dem Kauf.</p>
+          <a class="btn btn-ink btn-lg gumroad-button" href="https://myskinwarrior.gumroad.com/l/ueber-das-worueber-keiner-spricht" data-gumroad-overlay-checkout="true">Jetzt für 19,50&nbsp;€ sichern <i class="arr" data-lucide="arrow-right"></i></a>
+          <div class="trust"><i data-lucide="lock" style="width:15px;height:15px"></i><span>Sichere Zahlung über Gumroad</span></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GRATIS ============ -->
+  <section class="gratis" id="gratis">
+    <div class="wrap">
+      <div class="gratis-band reveal">
+        <img class="swirl-bg" src="assets/logo.png" alt="">
+        <div class="gratis-copy">
+          <p class="eyebrow">Gratis reinlesen</p>
+          <h2 class="h2">Erst mal reinlesen? Heft 01 ist für dich&nbsp;– kostenlos.</h2>
+          <p class="lead" style="margin-top:var(--s4)">„Näher, als du denkst" handelt von Nähe, Liebe und Berührung, wenn deine Haut gerade nicht mitspielt. Lad es dir kostenlos als PDF herunter.</p>
+        </div>
+        <div class="gratis-form">
+          <a class="btn btn-accent btn-lg gumroad-button" href="https://myskinwarrior.gumroad.com/l/naeher-als-du-denkst" data-gumroad-overlay-checkout="true">Gratis-Heft herunterladen</a>
+          <p class="gratis-note small">Kostenloser PDF-Download über Gumroad. Kein Spam.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ÜBER MICH ============ -->
+  <section class="about" id="ueber">
+    <div class="wrap about-grid">
+      <div class="portrait reveal">
+        <img class="swirl-bg" src="assets/logo.png" alt="">
+        <span class="ph-label">Platzhalter-Porträt</span>
+      </div>
+      <div class="about-copy reveal" style="--rd:80ms">
+        <p class="eyebrow kicker-petrol">Warum es das gibt</p>
+        <h2 class="h2">Geschrieben von jemandem, der es selbst kennt.</h2>
+        <p>Hinter My Skin Warrior steht kein Pharma-Unternehmen und keine Klinik, sondern ein Mensch, der selbst mit Akne inversa lebt. Diese Hefte sind aus den Nächten entstanden, in denen es nichts zu lesen gab, das sich nicht wie ein Beipackzettel anfühlte.</p>
+        <p>Kein Heilsversprechen, kein Ratgeber-Ton. Nur das, was ich gern jemandem gesagt hätte, der versteht, wie sich das anfühlt.</p>
+        <p class="about-pull">Ich wollte das Heft, das es nicht gab, als ich es am meisten gebraucht hätte.</p>
+        <span class="ph-flag"><i data-lucide="pencil-line" style="width:13px;height:13px"></i> Platzhalter-Text · echte Gründer-Story folgt</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STIMMEN ============ -->
+  <section class="voices">
+    <div class="wrap">
+      <div class="voices-head reveal">
+        <p class="eyebrow">Stimmen aus der Community</p>
+        <h2 class="h2">Du bist damit nicht allein.</h2>
+        <p class="small" style="margin-top:var(--s3)">Anonyme Stimmen, stellvertretend &amp; als Platzhalter. Echte Zuschriften folgen.</p>
+      </div>
+      <div class="voices-grid">
+        <figure class="voice reveal"><p class="serif-italic">„Zum ersten Mal hatte ich das Gefühl, dass jemand genau versteht, was in meinem Kopf passiert."</p><figcaption class="attrib">– anonym, aus der Community</figcaption></figure>
+        <figure class="voice accent reveal" style="--rd:60ms"><p class="serif-italic">„Ich hab beim Lesen geweint. Aber zum ersten Mal nicht aus Scham, sondern aus Erleichterung."</p><figcaption class="attrib">– anonym, aus der Community</figcaption></figure>
+        <figure class="voice reveal" style="--rd:120ms"><p class="serif-italic">„Endlich Worte für etwas, das ich seit Jahren niemandem erklären konnte."</p><figcaption class="attrib">– anonym, aus der Community</figcaption></figure>
+        <figure class="voice reveal" style="--rd:80ms"><p class="serif-italic">„Das hätte ich gebraucht, als alles anfing. Es nimmt einem nicht die Krankheit, aber ein Stück von der Einsamkeit."</p><figcaption class="attrib">– anonym, aus der Community</figcaption></figure>
+        <figure class="voice reveal" style="--rd:140ms"><p class="serif-italic">„Ruhig, ehrlich, ohne diesen aufgesetzten Optimismus. Genau das hat mir gefehlt."</p><figcaption class="attrib">– anonym, aus der Community</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" id="faq">
+    <div class="wrap faq-grid">
+      <div class="reveal">
+        <p class="eyebrow">FAQ</p>
+        <h2 class="h2">Häufige Fragen</h2>
+      </div>
+      <div class="faq-list reveal" style="--rd:60ms">
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Was ist Akne inversa?<i class="pm" data-lucide="plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Akne inversa&nbsp;– auch Hidradenitis suppurativa&nbsp;– ist eine chronische entzündliche Hauterkrankung. Sie verursacht schmerzhafte, wiederkehrende Knoten und Abszesse, meist in Hautfalten. <strong>Sie ist eine medizinische Erkrankung&nbsp;– keine Frage von Hygiene und nicht selbst verschuldet.</strong></div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Sind die Hefte ein Ersatz für ärztliche oder therapeutische Hilfe?<i class="pm" data-lucide="plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner"><strong>Nein.</strong> Die Hefte sind emotionale Begleitung von Mensch zu Mensch&nbsp;– kein medizinischer Rat und keine Therapie. Wenn es dir körperlich oder seelisch schlecht geht, sprich bitte mit deiner Ärztin, deinem Arzt oder einer Beratungsstelle.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Wie bekomme ich die Hefte?<i class="pm" data-lucide="plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Als PDF-Download über Gumroad. Heft 01 lädst du kostenlos herunter, die komplette Reihe nach dem Kauf&nbsp;– in beiden Fällen sofort und direkt.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">In welchem Format sind die Hefte?<i class="pm" data-lucide="plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">PDF im Format A5, gemacht für Bildschirm und Druck. Du kannst sie am Handy lesen, am Laptop oder dir ausdrucken&nbsp;– ganz wie es dir guttut.</div></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" aria-expanded="false">Kann ich nur ein einzelnes Heft kaufen?<i class="pm" data-lucide="plus"></i></button>
+          <div class="faq-a"><div class="faq-a-inner">Aktuell gibt es die Hefte als komplette Reihe im Bundle&nbsp;– das hält den Preis fair und die Geschichte zusammen. Heft 01 ist gratis, damit du in Ruhe reinlesen kannst, bevor du dich entscheidest.</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ABSCHLUSS ============ -->
+  <section class="closer">
+    <img class="swirl-bg" src="assets/logo.png" alt="">
+    <div class="wrap closer-inner reveal">
+      <h2 class="display">Du bist nicht <em>zu viel.</em></h2>
+      <p>Nicht zu kompliziert, nicht zu empfindlich, nicht zu schwierig. Du lebst mit etwas Schwerem&nbsp;– und du machst das gut.</p>
+      <div class="closer-cta">
+        <a class="btn btn-accent btn-lg" href="#gratis">Gratis-Heft sichern</a>
+        <a class="btn btn-outline btn-lg gumroad-button" href="https://myskinwarrior.gumroad.com/l/ueber-das-worueber-keiner-spricht" data-gumroad-overlay-checkout="true">Komplette Reihe · 19,50 €</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <img src="assets/logo.png" alt="">
+          <span class="wordmark">My Skin Warrior<span class="dot">.</span></span>
+        </a>
+        <p>Ehrliche Hefte für Menschen mit Akne inversa. Peer-geführt, unabhängig, aus eigener Betroffenheit.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Die Hefte</h4>
+        <a href="#reihe">Komplette Reihe</a>
+        <a href="#gratis">Gratis-Heft 01</a>
+        <a href="#faq">Format &amp; Download</a>
+      </div>
+      <div class="footer-col">
+        <h4>Mehr</h4>
+        <a href="#ueber">Über mich</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://instagram.com/myskinwarrior" data-mock="instagram">Instagram @myskinwarrior</a>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      <strong>Ein wichtiger Hinweis:</strong> My Skin Warrior ist peer-geführt und ersetzt keine ärztliche oder psychologische Behandlung. Wenn es dir gerade sehr schwer geht: die Telefonseelsorge ist rund um die Uhr und kostenlos erreichbar unter <strong>0800&nbsp;111&nbsp;0&nbsp;111</strong>.
+    </div>
+
+    <div class="footer-bottom">
+      <p class="small">© 2026 My Skin Warrior · peer-geführt &amp; unabhängig</p>
+      <p class="small"><a href="#" data-mock="impressum">Impressum</a> &nbsp;·&nbsp; <a href="#" data-mock="datenschutz">Datenschutz</a></p>
+    </div>
+  </div>
+</footer>
+
+<div id="tweaks-root"></div>
+
+<!-- ============ SCRIPTS ============ -->
+<script src="https://gumroad.com/js/gumroad.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="app.js"></script>
+<script>
+  if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); }
+</script>
+
+<!-- Tweaks (React-Insel) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks-app.jsx"></script>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+/* ============================================================
+   MY SKIN WARRIOR — Design Tokens
+   colors_and_type.css
+   Brand: Selbsthilfe-Tools für Hidradenitis suppurativa (Akne inversa)
+   Look: clean, hell, viel Weißraum. Accents only — never flächig.
+   ============================================================ */
+
+/* ---- Fonts (Google Fonts) -------------------------------------------------
+   Headlines:  Outfit ExtraBold (800)
+   Body:       DM Sans Regular (400) / Medium (500)
+   Loaded via CDN. Self-hosted copies live in /fonts (see README).            */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap');
+
+:root {
+  /* ---- Brand palette (EXACT — do not invent new hues) ---- */
+  --msw-cream:    #FFF8F4; /* primary background, warmer than white */
+  --msw-white:    #FFFFFF; /* card / panel surfaces */
+  --msw-violet:   #7B3FA0; /* accent: headlines, primary buttons, CTAs */
+  --msw-apricot:  #F5A87A; /* accent: highlights, secondary buttons */
+  --msw-lavender: #C09ADE; /* subtle: labels, subheadings */
+  --msw-ink:      #2A1A2E; /* text */
+
+  /* ---- Derived tints / shades (oklch-harmonised, accents only) ---- */
+  --msw-violet-press:   #663388; /* primary button :active / hover-darken */
+  --msw-violet-hover:   #6E3892; /* primary button :hover */
+  --msw-violet-soft:    #F3ECF8; /* faint violet wash for highlighted panels */
+  --msw-apricot-press:  #EC9760;
+  --msw-apricot-soft:   #FDEDE2; /* faint apricot wash */
+  --msw-lavender-soft:  #F6F0FB;
+
+  /* ---- Borders / lines (subtle, violet-based) ---- */
+  --msw-border:      rgba(123, 63, 160, 0.20); /* 1–1.5px hairlines */
+  --msw-border-soft: rgba(123, 63, 160, 0.12);
+  --msw-border-ink:  rgba(42, 26, 46, 0.10);
+
+  /* ---- Semantic foreground ---- */
+  --fg1: var(--msw-ink);                 /* primary text */
+  --fg2: rgba(42, 26, 46, 0.66);         /* secondary / supporting text */
+  --fg3: rgba(42, 26, 46, 0.46);         /* tertiary / captions, meta */
+  --fg-on-violet: #FFFFFF;               /* text on violet fills */
+  --fg-accent: var(--msw-violet);        /* links, accent text */
+
+  /* ---- Semantic background ---- */
+  --bg1: var(--msw-cream);               /* page background */
+  --bg2: var(--msw-white);               /* cards, surfaces */
+  --bg-violet-soft: var(--msw-violet-soft);
+  --bg-apricot-soft: var(--msw-apricot-soft);
+
+  /* ---- Type families ---- */
+  --font-display: 'Outfit', system-ui, sans-serif;       /* headlines */
+  --font-body:    'DM Sans', system-ui, sans-serif;      /* body / UI */
+
+  /* ---- Type weights ---- */
+  --w-body:     400;
+  --w-medium:   500;
+  --w-semibold: 600;
+  --w-display:  800; /* Outfit ExtraBold — headline default */
+
+  /* ---- Type scale (1.250 major-third-ish, tuned) ---- */
+  --text-xs:   0.75rem;  /* 12px — micro labels */
+  --text-sm:   0.875rem; /* 14px — captions, meta */
+  --text-base: 1rem;     /* 16px — body default */
+  --text-md:   1.125rem; /* 18px — lead body */
+  --text-lg:   1.375rem; /* 22px — large lead */
+  --text-xl:   1.75rem;  /* 28px — h3 */
+  --text-2xl:  2.25rem;  /* 36px — h2 */
+  --text-3xl:  3rem;     /* 48px — h1 */
+  --text-4xl:  4rem;     /* 64px — display / hero */
+
+  /* ---- Line heights ---- */
+  --lh-tight:  1.05; /* hero display */
+  --lh-snug:   1.15; /* headlines */
+  --lh-normal: 1.55; /* body */
+  --lh-loose:  1.7;  /* long-form reading */
+
+  /* ---- Letter spacing ---- */
+  --ls-tight:  -0.02em; /* large Outfit display */
+  --ls-label:   0.08em; /* uppercase labels / kickers */
+
+  /* ---- 8px spacing grid ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 96px;
+  --space-9: 128px;
+
+  /* ---- Radii ---- */
+  --radius-card:   8px;   /* cards */
+  --radius-panel:  12px;  /* panels / larger surfaces */
+  --radius-pill:   50px;  /* buttons, chips */
+  --radius-input:  8px;
+
+  /* ---- Soft shadows (clean-card look, never heavy) ---- */
+  --shadow-sm: 0 1px 2px rgba(42, 26, 46, 0.04);
+  --shadow-card: 0 2px 8px rgba(42, 26, 46, 0.05), 0 1px 2px rgba(42, 26, 46, 0.04);
+  --shadow-lifted: 0 8px 24px rgba(123, 63, 160, 0.08), 0 2px 6px rgba(42, 26, 46, 0.05);
+
+  /* ---- Motion (gentle, no bounce) ---- */
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur: 180ms;
+
+  /* ---- Layout ---- */
+  --maxw-prose: 680px;  /* long-form text column */
+  --maxw-page:  1120px; /* page content width */
+}
+
+/* ============================================================
+   SEMANTIC ELEMENT STYLES
+   Use these classes (or copy the rules) for consistent type.
+   ============================================================ */
+
+.msw-body {
+  font-family: var(--font-body);
+  font-weight: var(--w-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--fg1);
+  background: var(--bg1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Kicker / eyebrow label — lavender, uppercase, tracked */
+.msw-kicker {
+  font-family: var(--font-body);
+  font-weight: var(--w-semibold);
+  font-size: var(--text-sm);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--msw-lavender);
+}
+
+.msw-h1 {
+  font-family: var(--font-display);
+  font-weight: var(--w-display);
+  font-size: var(--text-3xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--msw-violet);
+  text-wrap: balance;
+}
+
+.msw-display {
+  font-family: var(--font-display);
+  font-weight: var(--w-display);
+  font-size: var(--text-4xl);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  color: var(--msw-violet);
+  text-wrap: balance;
+}
+
+.msw-h2 {
+  font-family: var(--font-display);
+  font-weight: var(--w-display);
+  font-size: var(--text-2xl);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  color: var(--fg1);
+  text-wrap: balance;
+}
+
+.msw-h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  line-height: var(--lh-snug);
+  color: var(--fg1);
+}
+
+.msw-lead {
+  font-family: var(--font-body);
+  font-weight: var(--w-body);
+  font-size: var(--text-md);
+  line-height: var(--lh-loose);
+  color: var(--fg2);
+  text-wrap: pretty;
+}
+
+.msw-p {
+  font-family: var(--font-body);
+  font-weight: var(--w-body);
+  font-size: var(--text-base);
+  line-height: var(--lh-normal);
+  color: var(--fg1);
+  text-wrap: pretty;
+}
+
+.msw-small {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: var(--lh-normal);
+  color: var(--fg3);
+}
+
+.msw-link {
+  color: var(--fg-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1.5px;
+  transition: color var(--dur) var(--ease);
+}
+.msw-link:hover { color: var(--msw-violet-press); }
