@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Über mich — Robin | My Skin Warrior</title>
+<meta name="description" content="Ich bin Robin, 35 Jahre alt, und lebe seit meiner Teenagerzeit mit Akne inversa. My Skin Warrior ist aus meiner eigenen Geschichte entstanden.">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--fg1);
+    font-size: var(--text-base);
+    line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---- NAV ---- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line-soft);
+    padding: 0 40px;
+  }
+  .header-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--fg1);
+  }
+  .brand img { height: 32px; width: auto; }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+  .wordmark .dot { color: var(--terracotta); }
+  .nav-back {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-sm);
+    color: var(--petrol);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color var(--dur) var(--ease);
+  }
+  .nav-back:hover { color: var(--terracotta); }
+  .nav-back svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; }
+
+  /* ---- LAYOUT ---- */
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 40px; }
+  .wrap-prose { max-width: 680px; margin: 0 auto; padding: 0 40px; }
+
+  /* ---- HERO ---- */
+  .hero {
+    padding: 72px 0 56px;
+  }
+  .eyebrow {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--terracotta-ink);
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(42px, 7vw, 74px);
+    line-height: var(--lh-tight);
+    letter-spacing: var(--ls-tight);
+    color: var(--fg1);
+    margin-bottom: 26px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--terracotta);
+  }
+  .hero-intro {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(18px, 2.2vw, 22px);
+    color: var(--fg2);
+    max-width: 580px;
+    line-height: 1.55;
+    margin-bottom: 36px;
+  }
+  .hero-rule {
+    width: 48px;
+    height: 3px;
+    background: var(--terracotta);
+    border-radius: 2px;
+    opacity: 0.6;
+  }
+
+  /* ---- PHOTO SECTIONS ---- */
+  .photo-hero {
+    padding: 0 0 64px;
+  }
+  .photo-hero-grid {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 16px;
+  }
+  .photo-frame {
+    border-radius: var(--r-panel);
+    overflow: hidden;
+    background: var(--sand);
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-frame-tall { aspect-ratio: 3/4; }
+  .photo-frame-sq { aspect-ratio: 1/1; }
+  .photo-caption-wrap {
+    max-width: 860px;
+    margin: 12px auto 0;
+    padding: 0 40px;
+  }
+  .photo-caption {
+    font-size: 13px;
+    color: var(--taupe);
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ---- DIVIDER ---- */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line), transparent);
+    margin: 60px 0;
+  }
+
+  /* ---- CONTENT SECTIONS ---- */
+  .section-block { margin-bottom: 60px; }
+
+  .section-label {
+    display: block;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: var(--ls-label);
+    text-transform: uppercase;
+    color: var(--terracotta-ink);
+    margin-bottom: 16px;
+  }
+
+  .section-block h2 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(26px, 3.5vw, 34px);
+    letter-spacing: var(--ls-tight);
+    line-height: var(--lh-snug);
+    color: var(--fg1);
+    margin-bottom: 22px;
+  }
+
+  .section-block p {
+    font-size: var(--text-base);
+    color: var(--fg1);
+    line-height: var(--lh-loose);
+    margin-bottom: 16px;
+  }
+  .section-block p:last-child { margin-bottom: 0; }
+
+  /* ---- PULL QUOTE ---- */
+  .pull-quote {
+    margin: 36px 0;
+    border-left: 3px solid var(--terracotta);
+    padding: 22px 28px;
+    background: var(--blush);
+    border-radius: 0 var(--r-card) var(--r-card) 0;
+  }
+  .pull-quote p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(17px, 2.3vw, 21px);
+    color: var(--fg1);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .pull-quote .attr {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    color: var(--taupe);
+    font-style: normal;
+    margin-top: 12px;
+  }
+
+  /* ---- STATS ---- */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 40px 0;
+  }
+  .stat {
+    background: var(--sand);
+    border-radius: var(--r-card);
+    padding: 24px 20px;
+    text-align: center;
+    border: 1px solid var(--line-soft);
+  }
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 38px;
+    color: var(--terracotta);
+    letter-spacing: var(--ls-tight);
+    line-height: 1;
+  }
+  .stat-label {
+    font-size: 13px;
+    color: var(--fg2);
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  /* ---- PHOTO INLINE ---- */
+  .photo-inline {
+    margin: 40px 0;
+    border-radius: var(--r-panel);
+    overflow: hidden;
+  }
+  .photo-inline img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-inline-caption {
+    font-size: 13px;
+    color: var(--taupe);
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* ---- PARTNER BLOCK ---- */
+  .partner-block {
+    background: var(--espresso);
+    border-radius: var(--r-panel);
+    padding: 36px 40px;
+    margin: 40px 0;
+  }
+  .partner-block p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(17px, 2.2vw, 20px);
+    color: #FBF6F0;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .partner-block p em {
+    font-style: normal;
+    color: var(--terracotta);
+    font-weight: 500;
+  }
+
+  /* ---- PHOTO PAIR ---- */
+  .photo-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 40px 0;
+  }
+  .photo-pair-frame {
+    border-radius: var(--r-panel);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+  }
+  .photo-pair-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .photo-pair-caption {
+    font-size: 13px;
+    color: var(--taupe);
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+  }
+
+  /* ---- FINAL CTA ---- */
+  .final-cta {
+    margin: 64px 0 80px;
+    padding: 44px 48px;
+    background: var(--blush);
+    border-radius: var(--r-panel);
+    border: 1px solid var(--line-accent);
+    text-align: center;
+  }
+  .final-cta h3 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(22px, 3vw, 28px);
+    letter-spacing: var(--ls-tight);
+    color: var(--fg1);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+  .final-cta p {
+    font-size: var(--text-base);
+    color: var(--fg2);
+    max-width: 520px;
+    margin: 0 auto 28px;
+    line-height: var(--lh-loose);
+  }
+  .btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: var(--text-sm);
+    padding: 13px 26px;
+    border-radius: var(--r-btn);
+    text-decoration: none;
+    transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+    cursor: pointer;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: #fff;
+  }
+  .btn-primary:hover { background: var(--terracotta-press); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--petrol);
+    border: 1.5px solid var(--petrol);
+  }
+  .btn-secondary:hover { background: var(--petrol); color: #fff; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    border-top: 1px solid var(--line-soft);
+    padding: 32px 40px;
+    text-align: center;
+  }
+  footer p {
+    font-size: 13px;
+    color: var(--taupe);
+  }
+  footer a { color: var(--petrol); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---- RESPONSIVE ---- */
+  @media (max-width: 680px) {
+    .site-header { padding: 0 20px; }
+    .wrap, .wrap-prose, .photo-caption-wrap { padding: 0 20px; }
+    .photo-hero-grid { padding: 0 20px; grid-template-columns: 1fr; }
+    .photo-frame-sq { display: none; }
+    .stat-row { grid-template-columns: 1fr 1fr; }
+    .stat:last-child { grid-column: 1 / -1; }
+    .photo-pair { grid-template-columns: 1fr; }
+    .partner-block { padding: 26px 24px; }
+    .final-cta { padding: 32px 24px; }
+    footer { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="My Skin Warrior — Startseite">
+      <img src="assets/logo.png" alt="">
+      <span class="wordmark">My Skin Warrior<span class="dot">.</span></span>
+    </a>
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück zur Startseite
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <span class="eyebrow">Über mich</span>
+    <h1>Ich bin Robin.<br><em>Und ich lebe<br>mit dem, was du kennst.</em></h1>
+    <p class="hero-intro">Kein Arzt. Kein Influencer. Nur jemand, der seit über zwanzig Jahren mit Akne inversa lebt und irgendwann aufgehört hat, alleine damit klarzukommen.</p>
+    <div class="hero-rule"></div>
+  </div>
+</div>
+
+<!-- HERO FOTOS -->
+<div class="photo-hero">
+  <div class="photo-hero-grid">
+    <div class="photo-frame photo-frame-tall">
+      <img src="assets/about/robin-park.jpg" alt="Robin sitzt lachend auf einer Parkbank">
+    </div>
+    <div class="photo-frame photo-frame-sq">
+      <img src="assets/about/robin-partnerin-spiegel.jpg" alt="Robin und seine Partnerin — Spiegelselfie">
+    </div>
+  </div>
+  <div class="photo-caption-wrap">
+    <p class="photo-caption">Links: Ich, wie ich die meiste Zeit bin. Rechts: mit der Person, die alles verändert hat.</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="wrap-prose">
+
+  <!-- BLOCK 1 -->
+  <div class="section-block">
+    <span class="section-label">Wie es anfing</span>
+    <h2>Mit 14 fingen die Beulen an. Niemand wusste, was es war.</h2>
+    <p>Ich bin Robin, geboren am 11.11.1990, und seit meiner frühen Teenagerzeit mit Akne inversa (Hidradenitis suppurativa) konfrontiert. Mit 14, 15, 16 kamen die ersten Beulen — hinterm Ohr, am Kopf, auf beiden Seiten. Meine Eltern waren verzweifelt, die Ärzte ratlos. Alles wurde auf Stress geschoben. Auf mich geschoben.</p>
+    <p>Niemand konnte einen Namen dafür nennen. Und wer keinen Namen für seinen Schmerz hat, zweifelt irgendwann daran, ob er überhaupt existiert.</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">20+</div>
+      <div class="stat-label">Jahre mit Akne inversa</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">~30</div>
+      <div class="stat-label">Operationen im Gesicht & Kopfbereich</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">35</div>
+      <div class="stat-label">Jahre alt — und ich mache weiter</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BLOCK 2 -->
+  <div class="section-block">
+    <span class="section-label">Die schweren Jahre</span>
+    <h2>Rund dreißig Eingriffe. Und das Alleingelassenwerden hat am meisten wehgetan.</h2>
+    <p>Die Krankheit hat sich vor allem am Kopf und hinter den Ohren ausgebreitet — so nah am Gehör und an Gesichtsnerven, dass viele Chirurgen sich geweigert haben, überhaupt zu operieren. Noteingriffe, Spezialisten, Ablehnungen. Ein Körper, der immer wieder ins Messer musste, weil es keine andere Option gab.</p>
+    <p>Antibiotikakuren. Immunblocker. Aggressive Mittel, die die Haut austrocknen sollten und brutale Nebenwirkungen hatten. Ich habe alles ausprobiert, was mir empfohlen wurde.</p>
+
+    <div class="pull-quote">
+      <p>„Das sind doch nur Pickelchen. Was hast du? Selber schuld, du rauchst."</p>
+      <span class="attr">Was ich mir anhören musste — von Freunden, Bekannten, manchmal sogar von Ärzten.</span>
+    </div>
+
+    <p>Ich esse gesund, mache Sport, pass seit Jahren auf mich auf. Und trotzdem haben Menschen über mich gerichtet, als wäre die Krankheit meine Schuld. Das war nicht nur falsch. Das war zerstörerisch.</p>
+    <p>Mitte Zwanzig war ich in einer Depressionsspirale, aus der ich lange keinen Ausweg gesehen habe. Die Krankheit hatte mich nicht nur körperlich erschöpft — sie hatte mich von allem abgeschnitten: von Freunden, von Nähe, von mir selbst.</p>
+  </div>
+
+  <!-- OP FOTOS -->
+  <div class="photo-pair">
+    <div class="photo-pair-frame">
+      <img src="assets/about/robin-op-auto.jpg" alt="Robin nach einer Operation mit Verband">
+    </div>
+    <div class="photo-pair-frame">
+      <img src="assets/about/robin-op-klinik.jpg" alt="Robin mit Verband — nach Eingriff">
+    </div>
+  </div>
+  <p class="photo-pair-caption">Nach zwei von vielen Eingriffen. Beides bin ich auch.</p>
+
+  <div class="divider"></div>
+
+  <!-- BLOCK 3 -->
+  <div class="section-block">
+    <span class="section-label">Der Wendepunkt</span>
+    <h2>Vor sieben Jahren hat jemand nicht aufgehört, an mich zu glauben.</h2>
+    <p>Meine Partnerin. Sie hat mir etwas zurückgegeben, das ich längst verloren geglaubt hatte: das Gefühl, gut genug zu sein. Nicht trotz der Krankheit. Einfach so.</p>
+
+    <div class="partner-block">
+      <p>Sie hat mir beigebracht, mich selbst zu lieben. Durch Sicherheit, durch Geduld, durch Verständnis — das echte, nicht das aufgesetzte. Ohne sie hätte ich mich wahrscheinlich aufgegeben. <em>Das sage ich nicht dramatisch. Das sage ich, weil es stimmt.</em></p>
+    </div>
+
+    <p>Selbstliebe ist kein Wellness-Begriff. Es ist die härteste Arbeit, die ich je gemacht habe. Und sie fängt dort an, wo jemand — manchmal man selbst, manchmal ein anderer Mensch — nicht aufhört, einen als vollständig zu sehen.</p>
+  </div>
+
+  <!-- PARTNERIN BERGSEE FOTO -->
+  <div class="photo-inline">
+    <img src="assets/about/robin-partnerin-bergsee.jpg" alt="Robin und seine Partnerin mit Wanderrucksäcken vor einem Bergsee">
+    <p class="photo-inline-caption">Das Leben passiert trotzdem. Manchmal sogar wegen der Krankheit — weil man aufhört, es aufzuschieben.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- BLOCK 4 -->
+  <div class="section-block">
+    <span class="section-label">Warum My Skin Warrior</span>
+    <h2>Weil ich weiß, dass es ganz vielen genauso geht. Und weil die Aufklärung unterirdisch ist.</h2>
+    <p>Viele Menschen wissen noch nicht einmal, dass sie Akne inversa haben. Die Diagnose-Wege dauern oft Jahre. Ärzte haben keine Zeit, kein Verständnis, und bieten meistens nur Antibiotika oder den Schnitt an. Wenn das nicht hilft, wird die Schuld zurückgegeben.</p>
+    <p>My Skin Warrior ist aus dieser Frustration entstanden. Aus dem Wissen, was es bedeutet, allein damit zu sein. Und aus der Überzeugung, dass es anders geht — wenn man versteht, was im eigenen Körper passiert.</p>
+    <p>Ich spreche hier aus eigener, gelebter Erfahrung. Ich erlebe das selbst noch. Jeden Tag. Das ist kein Konzept — das ist mein Leben. Und genau deshalb kannst du mir schreiben.</p>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div class="final-cta">
+    <h3>Was ich mir mit 15 gewünscht hätte, dass jemand zu mir sagt:</h3>
+    <p>Du bist gut genug. Du bist nicht schuld. Was mit deinem Körper passiert, ist nicht deine Strafe. Du verdienst genauso viel Nähe, Liebe und Würde wie jeder andere Mensch.</p>
+    <p style="font-style:italic; color: var(--terracotta-ink); margin-bottom: 28px;">Das sage ich jetzt dir.</p>
+    <div class="btn-group">
+      <a class="btn btn-primary" href="mailto:kontakt@myskinwarrior.de">Schreib mir →</a>
+      <a class="btn btn-secondary" href="index.html">Zu den Heften</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 My Skin Warrior · <a href="mailto:kontakt@myskinwarrior.de">kontakt@myskinwarrior.de</a></p>
+</footer>
+
+</body>
+</html>

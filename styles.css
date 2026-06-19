@@ -335,6 +335,16 @@ section { position: relative; }
 .gratis-band .swirl-bg { position: absolute; right: -6%; bottom: -30%; width: 44%; opacity: 0.12; pointer-events: none; }
 .gratis-copy { position: relative; z-index: 2; }
 .gratis-copy .h2 { margin-bottom: var(--s4); }
+.audio-sample {
+  margin-top: var(--s5); background: var(--paper); border: 1.5px solid var(--line);
+  border-radius: var(--r-btn); padding: var(--s4);
+}
+.audio-sample-label {
+  display: flex; align-items: center; gap: var(--s2); margin: 0 0 var(--s3);
+  font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--petrol);
+}
+.audio-sample audio { width: 100%; display: block; }
 .gratis-form { position: relative; z-index: 2; }
 .field {
   display: flex; gap: var(--s2); background: var(--paper); border: 1.5px solid var(--line);
