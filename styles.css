@@ -561,4 +561,14 @@ body.motion-off .reveal { opacity: 1 !important; transform: none !important; tra
   .footer-top { grid-template-columns: 1fr; gap: var(--s5); }
   .heft-card { width: 78vw; }
   .hero-cta .btn { flex: 1 1 auto; }
+
+  .field-lg { flex-direction: column; padding: 6px; }
+  .field-lg input { padding: 12px var(--s3); font-size: var(--text-base); }
+  .field-lg .btn { width: 100%; }
+  .gratis-cover-wrap { width: 160px; }
+  .gratis-cover-badge { font-size: 0.6rem; padding: 5px 10px; right: calc(-1 * var(--s2)); }
+  .gratis-trust { gap: 6px; }
+  .trust-pill { font-size: 0.62rem; padding: 5px 9px; }
+  .gratis-band { padding: clamp(24px, 5vw, 40px); }
+  .bundle-hero img { max-height: 280px; }
 }
