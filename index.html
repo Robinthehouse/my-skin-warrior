@@ -130,8 +130,10 @@
   <!-- ============ BUNDLE ============ -->
   <section class="bundle" id="reihe">
     <div class="wrap">
+      <div class="bundle-hero reveal">
+        <img src="assets/bundle-flatlay.jpg" alt="Alle fünf My Skin Warrior Hefte — Flatlay">
+      </div>
       <div class="bundle-card reveal">
-        <div class="bundle-main">
           <p class="eyebrow">Die komplette Reihe</p>
           <h2 class="h2">Alle fünf Hefte. Für dich, zum Behalten.</h2>
           <p class="lead" style="margin-top:var(--s4)">Fünf Hefte über die Dinge, die im Sprechzimmer keinen Platz haben: Nähe, Geruch, Scham, Schuld und das Alleinsein. Ehrlich geschrieben, ruhig gestaltet.</p>
@@ -174,8 +176,31 @@
           </div>
         </div>
         <div class="gratis-form">
-          <a class="btn btn-accent btn-lg" style="opacity:0.55;pointer-events:none;cursor:default">Gratis-Heft · kommt bald</a>
-          <p class="gratis-note small">Kostenloser PDF-Download über Etsy. Kein Spam.</p>
+          <div class="gratis-cover-wrap">
+            <img class="gratis-cover" src="assets/covers/cover-01.jpg" alt="Heft 01 — Näher, als du denkst">
+            <span class="gratis-cover-badge">Heft 01 · Gratis</span>
+          </div>
+          <form name="gratis-pdf" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <p class="sr-only"><label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+            <div class="field field-lg">
+              <input type="email" name="email" placeholder="Deine E-Mail-Adresse" required autocomplete="email">
+              <button type="submit" class="btn btn-accent">Gratis-Heft sichern</button>
+            </div>
+          </form>
+          <p class="gratis-note small">Kein Spam, kein Newsletter. Nur dein Gratis-Heft. <a href="datenschutz.html">Datenschutz</a></p>
+          <div class="gratis-trust">
+            <span class="trust-pill"><i data-lucide="shield-check" style="width:14px;height:14px"></i> DSGVO-konform</span>
+            <span class="trust-pill"><i data-lucide="zap" style="width:14px;height:14px"></i> Sofort-Download</span>
+            <span class="trust-pill"><i data-lucide="lock" style="width:14px;height:14px"></i> Kein Spam</span>
+          </div>
+          <div class="gratis-success">
+            <i data-lucide="check-circle" style="flex:0 0 auto;width:28px;height:28px"></i>
+            <div>
+              <strong>Dein Gratis-Heft ist bereit!</strong>
+              <p style="margin:var(--s2) 0 var(--s3)">Klick auf den Button, um „Näher, als du denkst" herunterzuladen.</p>
+              <a class="btn btn-accent btn-sm" href="uploads/01_Naeher_als_du_denkst.pdf" download>PDF herunterladen <i data-lucide="download" style="width:14px;height:14px"></i></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -294,7 +319,7 @@
 
     <div class="footer-bottom">
       <p class="small">© 2026 My Skin Warrior · peer-geführt &amp; unabhängig</p>
-      <p class="small"><a href="#" data-mock="impressum">Impressum</a> &nbsp;·&nbsp; <a href="#" data-mock="datenschutz">Datenschutz</a></p>
+      <p class="small"><a href="impressum.html">Impressum</a> &nbsp;·&nbsp; <a href="datenschutz.html">Datenschutz</a></p>
     </div>
   </div>
 </footer>

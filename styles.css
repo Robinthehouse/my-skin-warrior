@@ -301,6 +301,12 @@ section { position: relative; }
    BUNDLE
    ============================================================ */
 .bundle { padding: var(--s9) 0; }
+.bundle-hero {
+  border-radius: var(--r-panel); overflow: hidden;
+  margin-bottom: var(--s7); border: 1px solid var(--line-soft);
+  box-shadow: var(--sh-card);
+}
+.bundle-hero img { width: 100%; display: block; object-fit: cover; max-height: 480px; }
 .bundle-card {
   display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0;
   border-radius: var(--r-panel); overflow: hidden; border: 1px solid var(--line);
@@ -345,7 +351,34 @@ section { position: relative; }
   text-transform: uppercase; color: var(--petrol);
 }
 .audio-sample audio { width: 100%; display: block; }
-.gratis-form { position: relative; z-index: 2; }
+.gratis-form { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--s5); }
+.gratis-cover-wrap {
+  position: relative; width: 200px; filter: drop-shadow(0 20px 40px rgba(43,36,32,0.18));
+}
+.gratis-cover {
+  width: 100%; border-radius: var(--r-card); transform: rotate(-2deg);
+  border: 1px solid var(--line-soft);
+}
+.gratis-cover-badge {
+  position: absolute; top: var(--s3); right: calc(-1 * var(--s3));
+  background: var(--accent); color: #fff;
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 6px 14px; border-radius: var(--r-pill);
+  box-shadow: var(--sh-card); transform: rotate(3deg);
+}
+.gratis-trust {
+  display: flex; flex-wrap: wrap; gap: var(--s2); justify-content: center;
+}
+.trust-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--petrol); background: var(--paper);
+  border: 1px solid var(--line); padding: 6px 12px; border-radius: var(--r-pill);
+}
+.gratis-form.done .gratis-cover-wrap,
+.gratis-form.done .gratis-trust { display: none; }
 .field {
   display: flex; gap: var(--s2); background: var(--paper); border: 1.5px solid var(--line);
   border-radius: var(--r-btn); padding: 6px 6px 6px 6px; transition: border-color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
@@ -357,13 +390,23 @@ section { position: relative; }
 }
 .field input::placeholder { color: var(--fg3); }
 .gratis-note { margin: var(--s3) 0 0; }
+.gratis-note a { text-decoration: underline; text-underline-offset: 2px; }
+.field-lg { padding: 8px; }
+.field-lg input { font-size: var(--text-md); padding: 0 var(--s4); }
+.field-lg .btn { padding: 14px 24px; white-space: nowrap; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+.gratis-form form { margin: 0; width: 100%; }
 .gratis-success {
-  display: none; align-items: center; gap: var(--s3);
+  display: none; align-items: flex-start; gap: var(--s4);
   background: var(--paper); border: 1.5px solid var(--petrol); border-radius: var(--r-btn);
-  padding: var(--s4); color: var(--petrol);
+  padding: var(--s5); color: var(--fg1);
 }
-.gratis-form.done .field, .gratis-form.done .gratis-note { display: none; }
+.gratis-success i { color: var(--petrol); margin-top: 2px; }
+.gratis-success strong { font-size: var(--text-md); }
+.gratis-success p { color: var(--fg2); font-size: var(--text-sm); }
+.gratis-form.done form, .gratis-form.done .gratis-note { display: none; }
 .gratis-form.done .gratis-success { display: flex; }
+.field-lg .btn.is-loading { opacity: 0.7; pointer-events: none; }
 
 /* ============================================================
    ÜBER MICH

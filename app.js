@@ -154,6 +154,38 @@
     }
   }
 
+  /* ---- Gratis-PDF Formular (Netlify Forms, AJAX) ---- */
+  var gratisForm = document.querySelector('form[name="gratis-pdf"]');
+  if (gratisForm) {
+    gratisForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = gratisForm.querySelector('button[type="submit"]');
+      var wrap = gratisForm.closest('.gratis-form');
+      btn.classList.add('is-loading');
+      btn.textContent = 'Wird gesendet…';
+
+      var body = new URLSearchParams(new FormData(gratisForm)).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      }).then(function (res) {
+        if (res.ok) {
+          wrap.classList.add('done');
+          if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+        } else {
+          btn.classList.remove('is-loading');
+          btn.textContent = 'Gratis-Heft sichern';
+          alert('Etwas ist schiefgelaufen. Bitte versuche es erneut.');
+        }
+      }).catch(function () {
+        btn.classList.remove('is-loading');
+        btn.textContent = 'Gratis-Heft sichern';
+        alert('Verbindungsfehler. Bitte versuche es erneut.');
+      });
+    });
+  }
+
   /* ---- Mobile Menü (einfacher Anker-Scroll) ---- */
   var menuToggle = document.querySelector('.menu-toggle');
   if (menuToggle) {

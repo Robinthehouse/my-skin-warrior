@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Skin Warrior — Links</title>
+<meta name="description" content="Alle Links von My Skin Warrior — Hefte, Tracker, Community und mehr für Menschen mit Akne inversa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #FAF5EF;
+  --paper-deep: #F6EFE6;
+  --espresso: #2B2420;
+  --espresso-2: #3A322C;
+  --terracotta: #BD5A40;
+  --terracotta-ink: #9E4630;
+  --terracotta-press: #A24A33;
+  --petrol: #2E6E68;
+  --petrol-press: #255C57;
+  --sand: #F1E9DF;
+  --blush: #F3E0D2;
+  --taupe: #9C8B7E;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--espresso);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 60px;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grain texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.028;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Warm gradient orbs */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20vh;
+  right: -15vw;
+  width: 60vw;
+  height: 60vw;
+  max-width: 500px;
+  max-height: 500px;
+  background: radial-gradient(circle, rgba(189,90,64,0.06) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.orb-bottom {
+  position: fixed;
+  bottom: -15vh;
+  left: -10vw;
+  width: 50vw;
+  height: 50vw;
+  max-width: 420px;
+  max-height: 420px;
+  background: radial-gradient(circle, rgba(46,110,104,0.05) 0%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container {
+  max-width: 420px;
+  width: 100%;
+  padding-top: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ——— HEADER ——— */
+.header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.logo {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeScale 0.7s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  filter: drop-shadow(0 4px 16px rgba(189,90,64,0.18));
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--espresso);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 4px;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.brand-name .dot {
+  color: var(--terracotta);
+}
+
+.brand-tagline {
+  font-size: 13.5px;
+  color: var(--taupe);
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 8px auto 0;
+  font-weight: 400;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.18s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ——— DIVIDER ——— */
+.divider {
+  width: 32px;
+  height: 2px;
+  background: var(--terracotta);
+  border-radius: 2px;
+  margin: 0 auto 28px;
+  opacity: 0;
+  animation: fadeUp 0.5s 0.25s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* ——— LINK CARDS ——— */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--espresso);
+  background: #fff;
+  border: 1.5px solid rgba(43,36,32,0.07);
+  box-shadow: 0 1px 3px rgba(43,36,32,0.04);
+  cursor: pointer;
+  transition: transform 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.22s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.22s ease;
+  -webkit-tap-highlight-color: transparent;
+  font-family: var(--font-body);
+  width: 100%;
+  position: relative;
+  opacity: 0;
+  animation: fadeUp 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.link-card:nth-child(1) { animation-delay: 0.3s; }
+.link-card:nth-child(2) { animation-delay: 0.37s; }
+.link-card:nth-child(3) { animation-delay: 0.44s; }
+.link-card:nth-child(4) { animation-delay: 0.51s; }
+.link-card:nth-child(5) { animation-delay: 0.58s; }
+
+.link-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(43,36,32,0.08);
+  border-color: rgba(189,90,64,0.2);
+}
+
+.link-card:active {
+  transform: translateY(0) scale(0.985);
+}
+
+/* Primary card — Homepage */
+.card-primary {
+  background: var(--espresso);
+  color: var(--paper);
+  border-color: var(--espresso);
+  box-shadow: 0 4px 20px rgba(43,36,32,0.18);
+}
+.card-primary:hover {
+  box-shadow: 0 10px 32px rgba(43,36,32,0.24);
+  border-color: var(--espresso-2);
+}
+.card-primary .lc-sub { color: rgba(250,245,239,0.6); }
+.card-primary .lc-arrow { color: rgba(250,245,239,0.4); }
+
+/* Etsy card — terracotta accent */
+.card-etsy {
+  background: var(--blush);
+  border-color: rgba(189,90,64,0.12);
+}
+.card-etsy:hover {
+  border-color: rgba(189,90,64,0.3);
+  box-shadow: 0 8px 24px rgba(189,90,64,0.1);
+}
+
+/* Quiz card — petrol accent */
+.card-quiz {
+  background: linear-gradient(135deg, var(--petrol) 0%, #357A73 100%);
+  color: #fff;
+  border-color: var(--petrol);
+  box-shadow: 0 4px 20px rgba(46,110,104,0.2);
+}
+.card-quiz:hover {
+  box-shadow: 0 10px 32px rgba(46,110,104,0.28);
+  border-color: var(--petrol-press);
+}
+.card-quiz .lc-sub { color: rgba(255,255,255,0.7); }
+.card-quiz .lc-arrow { color: rgba(255,255,255,0.4); }
+
+/* Icon wrapper */
+.lc-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lc-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.lc-icon-home {
+  background: rgba(250,245,239,0.15);
+  color: var(--paper);
+}
+.lc-icon-etsy {
+  background: rgba(189,90,64,0.12);
+  color: var(--terracotta);
+}
+.lc-icon-quiz {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+.lc-icon-ig {
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+  border-radius: 11px;
+}
+.lc-icon-tiktok {
+  background: var(--espresso);
+  color: #fff;
+}
+
+.lc-text { flex: 1; min-width: 0; }
+
+.lc-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.25;
+  margin-bottom: 2px;
+}
+
+.lc-sub {
+  font-size: 12px;
+  color: var(--taupe);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.lc-arrow {
+  font-size: 16px;
+  color: rgba(43,36,32,0.25);
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+.link-card:hover .lc-arrow {
+  transform: translateX(2px);
+}
+
+/* ——— CONTACT ——— */
+.contact {
+  text-align: center;
+  font-size: 13px;
+  color: var(--taupe);
+  opacity: 0;
+  animation: fadeUp 0.5s 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+.contact a {
+  color: var(--terracotta-ink);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(189,90,64,0.2);
+  transition: border-color 0.2s;
+}
+.contact a:hover {
+  border-color: var(--terracotta);
+}
+
+/* ——— FOOTER ——— */
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--taupe);
+  margin-top: 24px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeUp 0.5s 0.72s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+.footer-brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--espresso);
+  opacity: 0.4;
+  margin-bottom: 4px;
+}
+
+/* ——— ANIMATIONS ——— */
+@keyframes fadeUp {
+  from { transform: translateY(14px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes fadeScale {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+/* ——————————————————————————————————————
+   MODAL / QUIZ
+—————————————————————————————————————— */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(43,36,32,0.45);
+  z-index: 200;
+  align-items: flex-end;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: var(--paper);
+  border-radius: 24px 24px 0 0;
+  padding: 8px 22px 40px;
+  width: 100%;
+  max-width: 460px;
+  max-height: 92vh;
+  overflow-y: auto;
+  animation: slideUp 0.35s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  -webkit-overflow-scrolling: touch;
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+.modal-handle {
+  width: 36px;
+  height: 4px;
+  background: var(--taupe);
+  border-radius: 4px;
+  margin: 12px auto 20px;
+  opacity: 0.3;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 21px;
+  color: var(--espresso);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.modal-sub {
+  font-size: 13px;
+  color: var(--taupe);
+  margin-bottom: 20px;
+  line-height: 1.55;
+}
+
+/* Progress */
+.quiz-progress {
+  height: 4px;
+  background: var(--sand);
+  border-radius: 10px;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+.quiz-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--terracotta), var(--petrol));
+  border-radius: 10px;
+  transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
+  width: 0%;
+}
+
+/* Question */
+.quiz-question {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--espresso);
+  margin-bottom: 14px;
+  line-height: 1.45;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.quiz-option {
+  padding: 12px 14px;
+  border-radius: 11px;
+  border: 1.5px solid rgba(43,36,32,0.1);
+  background: #fff;
+  color: var(--espresso);
+  font-family: var(--font-body);
+  font-size: 14px;
+  cursor: pointer;
+  text-align: left;
+  line-height: 1.45;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+.quiz-option:hover {
+  border-color: var(--terracotta);
+  background: var(--blush);
+}
+.quiz-option.selected {
+  border-color: var(--terracotta);
+  background: var(--terracotta);
+  color: #fff;
+}
+
+/* Nav buttons */
+.quiz-nav { display: flex; gap: 10px; }
+
+.btn-back {
+  flex: 1;
+  padding: 13px;
+  border-radius: 11px;
+  border: 1.5px solid rgba(43,36,32,0.1);
+  background: transparent;
+  color: var(--taupe);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.2s;
+}
+.btn-back:hover { border-color: var(--espresso); color: var(--espresso); }
+
+.btn-next {
+  flex: 2;
+  padding: 13px;
+  border-radius: 11px;
+  border: none;
+  background: var(--espresso);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  opacity: 0.3;
+  transition: opacity 0.2s, transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-next.ready { opacity: 1; }
+.btn-next.ready:hover { transform: translateY(-1px); }
+
+/* Result */
+.quiz-result { display: none; text-align: center; padding: 4px 0; }
+
+.result-icon {
+  font-size: 44px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.result-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--espresso);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.result-score {
+  display: inline-block;
+  background: var(--espresso);
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 28px;
+  padding: 8px 24px;
+  border-radius: 12px;
+  margin: 10px 0 14px;
+}
+
+.result-text {
+  font-size: 14px;
+  color: var(--taupe);
+  line-height: 1.65;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.result-warning {
+  background: #FFF8E6;
+  border: 1.5px solid #E8C94A;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 12.5px;
+  color: #7A5800;
+  margin-bottom: 18px;
+  text-align: left;
+  line-height: 1.55;
+}
+
+.btn-cta-result {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--terracotta);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  text-align: center;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 16px rgba(189,90,64,0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-cta-result:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(189,90,64,0.3);
+}
+
+.btn-close {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border-radius: 11px;
+  border: 1.5px solid rgba(43,36,32,0.08);
+  background: transparent;
+  color: var(--taupe);
+  font-family: var(--font-body);
+  font-size: 13px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ——— REDUCED MOTION ——— */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="orb-bottom"></div>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img class="logo" src="assets/logo.png" alt="My Skin Warrior Logo">
+    <div class="brand-name">My Skin Warrior<span class="dot">.</span></div>
+    <p class="brand-tagline">Dein täglicher Begleiter bei Hidradenitis suppurativa&nbsp;— Trigger finden, Muster erkennen, Ärzte überzeugen.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- LINKS -->
+  <div class="links">
+
+    <!-- 1 · Homepage -->
+    <a href="https://myskinwarrior.de" target="_blank" class="link-card card-primary">
+      <div class="lc-icon lc-icon-home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      </div>
+      <div class="lc-text">
+        <div class="lc-title">Unsere Homepage</div>
+        <div class="lc-sub">myskinwarrior.de</div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+
+    <!-- 2 · Etsy -->
+    <a href="https://www.etsy.com/de/listing/4524014523/akne-inversa-hidradenitis-suppurativa" target="_blank" class="link-card card-etsy">
+      <div class="lc-icon lc-icon-etsy">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.56 5.06c0-.52.04-1.3.6-1.3h4.12c2.72 0 3.04 2.14 3.24 3.02h.76l-.36-4.78H5.48l.04.7c1.28.12 1.6.28 1.6 1.58v14.48c0 1.3-.32 1.46-1.6 1.58l-.04.7h11.56l.52-5.02h-.78c-.46 2.08-1.14 3.62-3.84 3.62H9.16c-.56 0-.6-.78-.6-1.3v-6.32h3.08c1.88 0 2.18.98 2.38 2.3h.72V9.2h-.72c-.2 1.32-.5 2.3-2.38 2.3H8.56V5.06z"/></svg>
+      </div>
+      <div class="lc-text">
+        <div class="lc-title">Hefte auf Etsy</div>
+        <div class="lc-sub">Ehrliche Hefte für Menschen mit Akne inversa</div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+
+    <!-- 3 · HS Schnell-Check -->
+    <div class="link-card card-quiz" id="checkerBtn" role="button" tabindex="0">
+      <div class="lc-icon lc-icon-quiz">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div class="lc-text">
+        <div class="lc-title">Könnte ich HS haben?</div>
+        <div class="lc-sub">Schnell-Check · 2 Minuten · anonym</div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </div>
+
+    <!-- 4 · Instagram -->
+    <a href="https://www.instagram.com/myskinwarrior/" target="_blank" class="link-card">
+      <div class="lc-icon lc-icon-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </div>
+      <div class="lc-text">
+        <div class="lc-title">@myskinwarrior</div>
+        <div class="lc-sub">Tipps · Community · Updates</div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+
+    <!-- 5 · TikTok -->
+    <a href="https://www.tiktok.com/@myskinwarrior" target="_blank" class="link-card">
+      <div class="lc-icon lc-icon-tiktok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.27 8.27 0 0 0 4.76 1.5V7.12a4.83 4.83 0 0 1-1-.43z"/></svg>
+      </div>
+      <div class="lc-text">
+        <div class="lc-title">TikTok</div>
+        <div class="lc-sub">Folge uns auf TikTok</div>
+      </div>
+      <span class="lc-arrow">→</span>
+    </a>
+
+  </div>
+
+  <!-- CONTACT -->
+  <div class="contact">
+    Fragen? — <a href="mailto:msw-nachrichten@gmx.de">msw-nachrichten@gmx.de</a>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">My Skin Warrior</div>
+    Kein Ersatz für ärztliche Beratung · Basis: S2k-Leitlinie HS/Akne inversa (AWMF 2024)
+  </div>
+
+</div>
+
+<!-- ——— QUIZ MODAL ——— -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <div class="modal-handle"></div>
+    <div id="quizContent">
+      <div class="modal-title">HS Symptom-Check</div>
+      <div class="modal-sub">8 kurze Fragen. Kein Konto. Keine Daten gespeichert. Kein medizinischer Ersatz.</div>
+      <div class="quiz-progress"><div class="quiz-progress-bar" id="progressBar"></div></div>
+      <div class="quiz-question" id="questionText"></div>
+      <div class="quiz-options" id="optionsContainer"></div>
+      <div class="quiz-nav">
+        <button class="btn-back" id="btnBack" style="display:none" onclick="prevQuestion()">Zurück</button>
+        <button class="btn-next" id="btnNext" onclick="nextQuestion()">Weiter</button>
+      </div>
+    </div>
+    <div class="quiz-result" id="quizResult">
+      <span class="result-icon" id="resultIcon"></span>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-score" id="resultScore"></div>
+      <div class="result-text" id="resultText"></div>
+      <div class="result-warning" id="resultWarning" style="display:none"></div>
+      <a href="https://www.etsy.com/de/listing/4524014523/akne-inversa-hidradenitis-suppurativa" target="_blank" class="btn-cta-result" id="resultCTA"></a>
+      <button class="btn-close" onclick="closeChecker()">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+var Q = [
+  {
+    q: "1. Wie lange hast du wiederkehrende, schmerzhafte Beulen an typischen Stellen (Achseln, Leiste, Gesäß)?",
+    o: [
+      {t: "Noch nie / nur einmal", s: 0},
+      {t: "Seit wenigen Wochen", s: 1},
+      {t: "Seit Monaten", s: 2},
+      {t: "Seit Jahren — immer wieder", s: 3}
+    ]
+  },
+  {
+    q: "2. Wo treten die Beulen hauptsächlich auf?",
+    o: [
+      {t: "Gesicht, Rücken oder Brust", s: 0},
+      {t: "Achseln", s: 3},
+      {t: "Leiste oder Innenschenkel", s: 3},
+      {t: "Gesäß oder Intimbereich", s: 3}
+    ]
+  },
+  {
+    q: "3. Was passiert mit den Beulen?",
+    o: [
+      {t: "Gehen von selbst weg, ohne aufzugehen", s: 0},
+      {t: "Brechen auf und entleeren sich", s: 2},
+      {t: "Kommen immer wieder an derselben Stelle", s: 3},
+      {t: "Hinterlassen Narben oder Tunnel unter der Haut", s: 3}
+    ]
+  },
+  {
+    q: "4. Wie stark sind die Schmerzen bei einem Schub?",
+    o: [
+      {t: "Kaum merklich", s: 0},
+      {t: "Unangenehm, aber erträglich", s: 1},
+      {t: "Stark — schränkt meinen Alltag ein", s: 2},
+      {t: "Sehr stark — manchmal unerträglich", s: 3}
+    ]
+  },
+  {
+    q: "5. Hat dir ein Arzt HS / Akne inversa diagnostiziert?",
+    o: [
+      {t: "Ja, ich habe eine offizielle Diagnose", s: 2},
+      {t: "Nein, aber als Furunkel behandelt", s: 2},
+      {t: "Nein — nie richtig untersucht", s: 1},
+      {t: "Nein, ich habe keine Beulen dieser Art", s: 0}
+    ]
+  },
+  {
+    q: "6. Gibt es in deiner Familie Menschen mit ähnlichen Hautproblemen?",
+    o: [
+      {t: "Ja — Eltern oder Geschwister", s: 2},
+      {t: "Ja — entferntere Verwandte", s: 1},
+      {t: "Nicht, dass ich wüsste", s: 0}
+    ]
+  },
+  {
+    q: "7. Verschlimmern sich die Beschwerden bei Stress, Hitze oder hormonellen Schwankungen?",
+    o: [
+      {t: "Ja, deutlich", s: 2},
+      {t: "Manchmal schon", s: 1},
+      {t: "Nein", s: 0}
+    ]
+  },
+  {
+    q: "8. Wie lange dauert es, bis eine neue Beule abklingt?",
+    o: [
+      {t: "Ein paar Tage", s: 0},
+      {t: "1–2 Wochen", s: 1},
+      {t: "Mehrere Wochen oder länger", s: 2},
+      {t: "Es hört nie auf — immer aktive Beulen", s: 3}
+    ]
+  }
+];
+
+var cur = 0;
+var ans = [-1,-1,-1,-1,-1,-1,-1,-1];
+
+function openChecker() {
+  cur = 0;
+  ans = [-1,-1,-1,-1,-1,-1,-1,-1];
+  document.getElementById('quizContent').style.display = 'block';
+  document.getElementById('quizResult').style.display = 'none';
+  document.getElementById('modal').className = 'modal-overlay active';
+  render();
+}
+
+function closeChecker() {
+  document.getElementById('modal').className = 'modal-overlay';
+}
+
+function render() {
+  var q = Q[cur];
+  document.getElementById('questionText').textContent = q.q;
+  document.getElementById('progressBar').style.width = Math.round((cur / Q.length) * 100) + '%';
+  var c = document.getElementById('optionsContainer');
+  c.innerHTML = '';
+  for (var i = 0; i < q.o.length; i++) {
+    (function(idx) {
+      var b = document.createElement('button');
+      b.className = 'quiz-option' + (ans[cur] === idx ? ' selected' : '');
+      b.textContent = q.o[idx].t;
+      b.onclick = function() { pick(idx); };
+      c.appendChild(b);
+    })(i);
+  }
+  document.getElementById('btnBack').style.display = cur > 0 ? 'block' : 'none';
+  var nb = document.getElementById('btnNext');
+  nb.textContent = cur === Q.length - 1 ? 'Ergebnis anzeigen' : 'Weiter';
+  nb.className = 'btn-next' + (ans[cur] >= 0 ? ' ready' : '');
+}
+
+function pick(i) {
+  ans[cur] = i;
+  var bs = document.querySelectorAll('.quiz-option');
+  for (var j = 0; j < bs.length; j++) bs[j].className = 'quiz-option' + (j === i ? ' selected' : '');
+  document.getElementById('btnNext').className = 'btn-next ready';
+}
+
+function nextQuestion() {
+  if (ans[cur] < 0) return;
+  if (cur < Q.length - 1) { cur++; render(); }
+  else showResult();
+}
+
+function prevQuestion() {
+  if (cur > 0) { cur--; render(); }
+}
+
+function showResult() {
+  var tot = 0, max = 0;
+  for (var i = 0; i < Q.length; i++) {
+    if (ans[i] >= 0) tot += Q[i].o[ans[i]].s;
+    var m = 0;
+    for (var j = 0; j < Q[i].o.length; j++) if (Q[i].o[j].s > m) m = Q[i].o[j].s;
+    max += m;
+  }
+  var pct = Math.round((tot / max) * 100);
+  document.getElementById('quizContent').style.display = 'none';
+  document.getElementById('quizResult').style.display = 'block';
+  document.getElementById('progressBar').style.width = '100%';
+
+  var icon, title, text, cta, warn;
+  if (pct >= 65) {
+    icon = '🔴';
+    title = 'Deine Antworten klingen sehr vertraut';
+    text = 'Das Muster stimmt stark mit typischen Zeichen von Hidradenitis suppurativa überein. Das ist kein Ersatz für eine Diagnose — aber ein deutliches Signal. Bitte sprich mit einer Hautärztin oder einem Hautarzt.';
+    cta = 'Hefte ansehen — mehr über HS erfahren';
+    warn = true;
+  } else if (pct >= 35) {
+    icon = '🟡';
+    title = 'Einige Übereinstimmungen mit HS';
+    text = 'Deine Antworten zeigen Merkmale, die bei HS auftreten können. Ein Arztbesuch lohnt sich. Wenn du Beschwerden trackst, kann das beim nächsten Termin sehr helfen.';
+    cta = 'Hefte ansehen — Muster erkennen';
+    warn = false;
+  } else {
+    icon = '🟢';
+    title = 'Wenig Übereinstimmung mit HS';
+    text = 'Deine Antworten deuten nicht stark auf Hidradenitis suppurativa hin. Wenn du unsicher bist oder Beschwerden hast, ist ein Arztbesuch immer sinnvoll.';
+    cta = 'Mehr über HS erfahren';
+    warn = false;
+  }
+
+  document.getElementById('resultIcon').textContent = icon;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultScore').textContent = pct + ' % Übereinstimmung';
+  document.getElementById('resultText').textContent = text;
+  document.getElementById('resultCTA').textContent = cta;
+
+  var w = document.getElementById('resultWarning');
+  if (warn) {
+    w.style.display = 'block';
+    w.textContent = 'Dies ist kein medizinischer Test. Bei starken Beschwerden bitte einen Arzt aufsuchen.';
+  } else {
+    w.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var cb = document.getElementById('checkerBtn');
+  cb.addEventListener('click', openChecker);
+  cb.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openChecker(); }
+  });
+  document.getElementById('modal').addEventListener('click', function(e) {
+    if (e.target === this) closeChecker();
+  });
+});
+</script>
+</body>
+</html>

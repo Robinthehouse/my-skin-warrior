@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Datenschutzerklärung — My Skin Warrior</title>
+<meta name="robots" content="noindex">
+<link rel="stylesheet" href="tokens.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-body); background: var(--paper); color: var(--fg1);
+    font-size: var(--text-base); line-height: var(--lh-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--petrol); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 100; background: var(--paper);
+    border-bottom: 1px solid var(--line-soft); padding: 0 40px;
+  }
+  .header-inner {
+    max-width: 1180px; margin: 0 auto; height: 64px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--fg1); }
+  .brand img { width: 30px; height: 30px; }
+  .brand .wordmark { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; letter-spacing: -0.01em; }
+  .brand .dot { color: var(--terracotta); }
+  .nav-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: var(--text-sm); color: var(--fg2); text-decoration: none;
+  }
+  .nav-back:hover { color: var(--fg1); }
+  .nav-back svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .legal { max-width: 680px; margin: 0 auto; padding: 64px 24px 120px; }
+  .legal h1 {
+    font-family: var(--font-display); font-weight: 900; font-size: clamp(2rem, 4vw, 2.8rem);
+    line-height: 1.1; letter-spacing: var(--ls-tight); margin-bottom: 16px;
+  }
+  .legal .last-updated { font-size: var(--text-sm); color: var(--taupe); margin-bottom: 48px; }
+  .legal h2 {
+    font-family: var(--font-display); font-weight: 700; font-size: var(--text-lg);
+    margin: 40px 0 12px; color: var(--fg1);
+  }
+  .legal h3 {
+    font-family: var(--font-display); font-weight: 600; font-size: var(--text-md);
+    margin: 24px 0 8px; color: var(--fg1);
+  }
+  .legal p, .legal li { color: var(--fg2); margin-bottom: 12px; }
+  .legal ul { padding-left: 20px; margin-bottom: 16px; }
+  .legal .info-block {
+    background: var(--sand); border: 1px solid var(--line); border-radius: var(--r-card);
+    padding: 24px 28px; margin: 24px 0;
+  }
+  .legal .info-block p { margin-bottom: 4px; }
+  .legal .info-block strong { color: var(--fg1); }
+
+  footer {
+    border-top: 1px solid var(--line-soft); padding: 32px 40px; text-align: center;
+  }
+  footer p { font-size: 13px; color: var(--taupe); }
+  footer a { color: var(--petrol); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 680px) {
+    .site-header { padding: 0 20px; }
+    .legal { padding: 40px 20px 80px; }
+    footer { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="index.html" aria-label="My Skin Warrior — Startseite">
+      <img src="assets/logo.png" alt="">
+      <span class="wordmark">My Skin Warrior<span class="dot">.</span></span>
+    </a>
+    <a class="nav-back" href="index.html">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Zurück zur Startseite
+    </a>
+  </div>
+</header>
+
+<div class="legal">
+  <h1>Datenschutzerklärung</h1>
+  <p class="last-updated">Stand: 21. Juni 2026</p>
+
+  <!-- 1. VERANTWORTLICHER -->
+  <h2>1. Verantwortlicher</h2>
+  <div class="info-block">
+    <p><strong>Robin Liebzeit</strong></p>
+    <p>Unterm Georgenberg 23</p>
+    <p>72762 Reutlingen</p>
+    <p>E-Mail: <a href="mailto:kontakt@myskinwarrior.de">kontakt@myskinwarrior.de</a></p>
+  </div>
+
+  <!-- 2. ÜBERBLICK -->
+  <h2>2. Überblick über die Datenverarbeitung</h2>
+  <p>Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Diese Datenschutzerklärung informiert dich darüber, welche personenbezogenen Daten wir erheben, zu welchem Zweck und auf welcher Rechtsgrundlage.</p>
+  <p>Personenbezogene Daten werden auf dieser Website nur im technisch notwendigen Umfang erhoben. Die Datenverarbeitung erfolgt gemäß der Datenschutz-Grundverordnung (DSGVO) und dem Bundesdatenschutzgesetz (BDSG).</p>
+
+  <!-- 3. HOSTING -->
+  <h2>3. Hosting</h2>
+  <p>Diese Website wird bei <strong>Netlify, Inc.</strong> (44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA) gehostet. Beim Aufruf unserer Website werden automatisch Informationen durch den Hosting-Anbieter erfasst (sogenannte Server-Logfiles):</p>
+  <ul>
+    <li>Aufgerufene Seite / Datei</li>
+    <li>Datum und Uhrzeit des Zugriffs</li>
+    <li>Übertragene Datenmenge</li>
+    <li>Referrer-URL (zuvor besuchte Seite)</li>
+    <li>Browser-Typ und -Version</li>
+    <li>Betriebssystem</li>
+    <li>IP-Adresse (anonymisiert)</li>
+  </ul>
+  <p>Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Bereitstellung und Sicherheit der Website (Art. 6 Abs. 1 lit. f DSGVO). Netlify verarbeitet Daten in den USA und hat sich zur Einhaltung der EU-Standardvertragsklauseln verpflichtet.</p>
+
+  <!-- 4. SSL/TLS -->
+  <h2>4. SSL/TLS-Verschlüsselung</h2>
+  <p>Diese Seite nutzt aus Sicherheitsgründen eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennst du daran, dass die Adresszeile des Browsers von „http://" auf „https://" wechselt und an dem Schloss-Symbol in der Browserzeile.</p>
+
+  <!-- 5. E-MAIL-FORMULAR -->
+  <h2>5. Gratis-PDF Anmeldeformular</h2>
+  <p>Wenn du auf unserer Website deine E-Mail-Adresse einträgst, um das Gratis-Heft herunterzuladen, werden folgende Daten verarbeitet:</p>
+  <ul>
+    <li>E-Mail-Adresse</li>
+    <li>Zeitpunkt der Eingabe</li>
+  </ul>
+  <p>Die Verarbeitung erfolgt auf Grundlage deiner Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Du kannst deine Einwilligung jederzeit widerrufen, indem du uns per E-Mail kontaktierst. Die Rechtmäßigkeit der bereits erfolgten Datenverarbeitung bleibt vom Widerruf unberührt.</p>
+  <p>Die eingegebenen Daten werden über <strong>Netlify Forms</strong> verarbeitet und in unserem Netlify-Dashboard gespeichert. Sie werden ausschließlich zur Bereitstellung des Gratis-Downloads verwendet und nicht an Dritte weitergegeben. Die Daten werden gelöscht, sobald der Zweck der Speicherung entfällt.</p>
+
+  <!-- 6. KONTAKTAUFNAHME -->
+  <h2>6. Kontaktaufnahme per E-Mail</h2>
+  <p>Wenn du uns per E-Mail kontaktierst, wird deine Nachricht samt der von dir angegebenen Kontaktdaten gespeichert, um dein Anliegen zu bearbeiten. Eine Weitergabe an Dritte erfolgt nicht.</p>
+  <p>Die Verarbeitung erfolgt auf Grundlage unseres berechtigten Interesses an der Beantwortung deiner Anfrage (Art. 6 Abs. 1 lit. f DSGVO) bzw. auf Grundlage einer vorvertraglichen Maßnahme (Art. 6 Abs. 1 lit. b DSGVO).</p>
+
+  <!-- 7. EXTERNE DIENSTE -->
+  <h2>7. Externe Dienste und Inhalte</h2>
+
+  <h3>Google Fonts</h3>
+  <p>Diese Website nutzt Schriftarten von Google Fonts, die über externe Server (Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA) geladen werden. Beim Aufruf der Seite stellt dein Browser eine Verbindung zu Googles Servern her, wobei deine IP-Adresse an Google übermittelt wird.</p>
+  <p>Die Nutzung erfolgt auf Grundlage unseres berechtigten Interesses an einer einheitlichen Darstellung der Website (Art. 6 Abs. 1 lit. f DSGVO). Google verarbeitet Daten in den USA und hat sich zur Einhaltung der EU-Standardvertragsklauseln verpflichtet.</p>
+
+  <h3>Lucide Icons</h3>
+  <p>Für die Darstellung von Icons wird die Bibliothek Lucide von einem externen CDN (unpkg.com) geladen. Dabei wird deine IP-Adresse an den CDN-Anbieter übermittelt.</p>
+
+  <h3>Etsy</h3>
+  <p>Für den Verkauf unserer digitalen Produkte verlinken wir auf unseren Shop bei Etsy, Inc. (117 Adams Street, Brooklyn, NY 11201, USA). Wenn du einen Etsy-Link klickst, gelten die Datenschutzbestimmungen von Etsy.</p>
+
+  <!-- 8. COOKIES -->
+  <h2>8. Cookies</h2>
+  <p>Diese Website verwendet <strong>keine eigenen Cookies</strong> und kein Tracking. Es werden keine Analyse-Tools wie Google Analytics eingesetzt. Durch die Einbindung externer Dienste (Google Fonts, CDN) können technisch bedingt Cookies von Drittanbietern gesetzt werden.</p>
+
+  <!-- 9. DEINE RECHTE -->
+  <h2>9. Deine Rechte</h2>
+  <p>Du hast jederzeit das Recht auf:</p>
+  <ul>
+    <li><strong>Auskunft</strong> über die bei uns gespeicherten Daten (Art. 15 DSGVO)</li>
+    <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+    <li><strong>Löschung</strong> deiner Daten (Art. 17 DSGVO)</li>
+    <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+    <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+    <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+    <li><strong>Widerruf</strong> erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
+  </ul>
+  <p>Zur Ausübung deiner Rechte genügt eine E-Mail an <a href="mailto:kontakt@myskinwarrior.de">kontakt@myskinwarrior.de</a>.</p>
+
+  <!-- 10. BESCHWERDERECHT -->
+  <h2>10. Beschwerderecht bei einer Aufsichtsbehörde</h2>
+  <p>Wenn du der Ansicht bist, dass die Verarbeitung deiner personenbezogenen Daten gegen die DSGVO verstößt, hast du das Recht, dich bei einer Aufsichtsbehörde zu beschweren. Die für uns zuständige Aufsichtsbehörde ist:</p>
+  <div class="info-block">
+    <p><strong>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</strong></p>
+    <p>Lautenschlagerstraße 20</p>
+    <p>70173 Stuttgart</p>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 My Skin Warrior · <a href="datenschutz.html">Datenschutz</a> · <a href="impressum.html">Impressum</a></p>
+</footer>
+
+</body>
+</html>
