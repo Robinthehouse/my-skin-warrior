@@ -154,21 +154,21 @@
     }
   }
 
-  /* ---- Gratis-PDF Formular (Netlify Forms, AJAX) ---- */
+  /* ---- Gratis-PDF Formular (Brevo API via Netlify Function) ---- */
   var gratisForm = document.querySelector('form[name="gratis-pdf"]');
   if (gratisForm) {
     gratisForm.addEventListener('submit', function (e) {
       e.preventDefault();
       var btn = gratisForm.querySelector('button[type="submit"]');
       var wrap = gratisForm.closest('.gratis-form');
+      var emailInput = gratisForm.querySelector('input[name="email"]');
       btn.classList.add('is-loading');
       btn.textContent = 'Wird gesendet…';
 
-      var body = new URLSearchParams(new FormData(gratisForm)).toString();
-      fetch('/', {
+      fetch('/.netlify/functions/subscribe', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: body
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: emailInput.value })
       }).then(function (res) {
         if (res.ok) {
           wrap.classList.add('done');
