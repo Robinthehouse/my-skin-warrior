@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Handgepflegt — dieses Projekt hat keinen Build-Schritt.
+  Bei einer neuen indexierbaren Seite hier einen <url>-Block ergänzen.
+  Nicht eintragen: impressum.html, datenschutz.html, linktree.html (alle noindex).
+  Keine app.myskinwarrior.de-URLs — die App liefert ihre eigene Sitemap.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://myskinwarrior.de/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://myskinwarrior.de/ueber-mich.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+</urlset>

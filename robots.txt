@@ -1,0 +1,13 @@
+# myskinwarrior.de
+
+User-agent: *
+Allow: /
+# Auslieferung der Hefte läuft über Etsy, nicht über diese Domain
+Disallow: /uploads/
+Disallow: /screenshots/
+
+# KI-Crawler sind bewusst erlaubt: Ziel ist, in Antworten auf Fragen wie
+# "Akne inversa App" oder "HS Tagebuch" zitiert zu werden.
+# GPTBot, ClaudeBot, PerplexityBot, Google-Extended & Co. fallen unter "*".
+
+Sitemap: https://myskinwarrior.de/sitemap.xml
