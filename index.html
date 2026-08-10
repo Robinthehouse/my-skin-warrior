@@ -7,6 +7,9 @@
 <meta name="description" content="Fünf ehrliche Hefte für Menschen mit Akne inversa (Hidradenitis suppurativa). Keine Ratgeber. Eher ein Brief von jemandem, der es kennt.">
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="animations.css">
+<script>document.documentElement.classList.add('js');</script>
+<script defer data-domain="myskinwarrior.de" src="https://plausible.io/js/script.js"></script>
 </head>
 <body data-screen-label="Landingpage">
 
@@ -36,7 +39,7 @@
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <p class="eyebrow reveal">Über das, worüber keiner spricht</p>
-        <h1 class="display hero-display reveal" style="--rd:60ms">Über das, was du nachts denkst&nbsp;– <em>und keinem sagst.</em></h1>
+        <h1 class="display hero-display reveal" style="--rd:60ms">Über das, was du nachts denkst&nbsp;– <em class="u-wavy">und keinem sagst.<svg class="u-draw" viewBox="0 0 220 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8.5 C 45 3.5, 95 10, 140 6.5 S 200 4.5, 216 7.5" pathLength="1"/></svg></em></h1>
         <p class="lead hero-sub reveal" style="--rd:120ms">Fünf ehrliche Hefte für Menschen mit Akne inversa. Keine Ratgeber. Eher ein Brief von jemandem, der es kennt.</p>
         <div class="hero-cta reveal" style="--rd:180ms">
           <a class="btn btn-accent btn-lg" href="#gratis">Gratis-Heft sichern</a>
@@ -48,7 +51,7 @@
           <span>Sichere Zahlung über Etsy</span>
         </div>
       </div>
-      <div class="cover-fan reveal" style="--rd:120ms" aria-hidden="false">
+      <div class="cover-fan" aria-hidden="false">
         <img class="swirl-bg" src="assets/logo.png" alt="">
         <span class="fan-badge">Heft 01 · Gratis</span>
         <figure class="fan-card c2"><img src="assets/covers/cover-03.jpg" alt="Heft 03 — Was die Wunden mit dem Kopf machen"></figure>
@@ -134,10 +137,11 @@
         <img src="assets/bundle-flatlay.jpg" alt="Alle fünf My Skin Warrior Hefte — Flatlay">
       </div>
       <div class="bundle-card reveal">
+        <div class="bundle-main">
           <p class="eyebrow">Die komplette Reihe</p>
           <h2 class="h2">Alle fünf Hefte. Für dich, zum Behalten.</h2>
           <p class="lead" style="margin-top:var(--s4)">Fünf Hefte über die Dinge, die im Sprechzimmer keinen Platz haben: Nähe, Geruch, Scham, Schuld und das Alleinsein. Ehrlich geschrieben, ruhig gestaltet.</p>
-          <ul class="checklist">
+          <ul class="checklist" data-stagger="80">
             <li><i class="ic" data-lucide="check"></i><span>Alle 5 Hefte als PDF (A5)</span></li>
             <li><i class="ic" data-lucide="check"></i><span>Sofort herunterladbar nach dem Kauf</span></li>
             <li><i class="ic" data-lucide="check"></i><span>Für Bildschirm und Druck gemacht</span></li>
@@ -194,7 +198,7 @@
             <span class="trust-pill"><i data-lucide="lock" style="width:14px;height:14px"></i> Kein Spam</span>
           </div>
           <div class="gratis-success">
-            <i data-lucide="check-circle" style="flex:0 0 auto;width:28px;height:28px"></i>
+            <svg class="success-check" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><circle cx="16" cy="16" r="14" pathLength="1"/><path d="M9.5 16.5 L14 21 L22.5 11.5" pathLength="1"/></svg>
             <div>
               <strong>Dein Gratis-Heft ist bereit!</strong>
               <p style="margin:var(--s2) 0 var(--s3)">Klick auf den Button, um „Näher, als du denkst" herunterzuladen.</p>
@@ -209,10 +213,10 @@
   <!-- ============ ÜBER MICH ============ -->
   <section class="about" id="ueber">
     <div class="wrap about-grid">
-      <div class="portrait reveal">
+      <div class="portrait reveal reveal-img">
         <img src="assets/about/robin-park.jpg" alt="Robin" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
       </div>
-      <div class="about-copy reveal" style="--rd:80ms">
+      <div class="about-copy" data-stagger="90">
         <p class="eyebrow kicker-petrol">Warum es das gibt</p>
         <h2 class="h2">Geschrieben von jemandem, der es selbst kennt.</h2>
         <p>Hinter My Skin Warrior steht kein Pharma-Unternehmen und keine Klinik, sondern ein Mensch, der selbst mit Akne inversa lebt. Diese Hefte sind aus den Nächten entstanden, in denen es nichts zu lesen gab, das sich nicht wie ein Beipackzettel anfühlte.</p>
@@ -248,7 +252,7 @@
         <p class="eyebrow">FAQ</p>
         <h2 class="h2">Häufige Fragen</h2>
       </div>
-      <div class="faq-list reveal" style="--rd:60ms">
+      <div class="faq-list" data-stagger="80">
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false">Was ist Akne inversa?<i class="pm" data-lucide="plus"></i></button>
           <div class="faq-a"><div class="faq-a-inner">Akne inversa&nbsp;– auch Hidradenitis suppurativa&nbsp;– ist eine chronische entzündliche Hauterkrankung. Sie verursacht schmerzhafte, wiederkehrende Knoten und Abszesse, meist in Hautfalten. <strong>Sie ist eine medizinische Erkrankung&nbsp;– keine Frage von Hygiene und nicht selbst verschuldet.</strong></div></div>
@@ -277,7 +281,7 @@
   <section class="closer">
     <img class="swirl-bg" src="assets/logo.png" alt="">
     <div class="wrap closer-inner reveal">
-      <h2 class="display">Du bist nicht <em>zu viel.</em></h2>
+      <h2 class="display">Du bist nicht <em class="u-wavy">zu viel.<svg class="u-draw" viewBox="0 0 220 12" preserveAspectRatio="none" aria-hidden="true"><path d="M4 8.5 C 45 3.5, 95 10, 140 6.5 S 200 4.5, 216 7.5" pathLength="1"/></svg></em></h2>
       <p>Nicht zu kompliziert, nicht zu empfindlich, nicht zu schwierig. Du lebst mit etwas Schwerem&nbsp;– und du machst das gut.</p>
       <div class="closer-cta">
         <a class="btn btn-accent btn-lg" href="#gratis">Gratis-Heft sichern</a>
@@ -324,21 +328,13 @@
   </div>
 </footer>
 
-<div id="tweaks-root"></div>
-
 <!-- ============ SCRIPTS ============ -->
 <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="animations.js"></script>
 <script src="app.js"></script>
 <script>
   if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); }
 </script>
-
-<!-- Tweaks (React-Insel) -->
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="tweaks-app.jsx"></script>
 
 </body>
 </html>

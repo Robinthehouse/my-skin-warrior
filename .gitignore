@@ -1,0 +1,25 @@
+# macOS
+.DS_Store
+._*
+
+# Editor
+.vscode/
+*.swp
+
+# Netlify
+.netlify/
+
+# Abhängigkeiten (falls später Build-Schritt dazukommt)
+node_modules/
+
+# Lokale Umgebungsvariablen — niemals committen
+.env
+.env.*
+!.env.example
+
+# Kostenpflichtige Hefte: Auslieferung läuft über Etsy, nicht über diese Domain.
+# Nur Heft 01 (Gratis-Heft) wird ausgeliefert — es ist in index.html verlinkt.
+uploads/02_*.pdf
+uploads/03_*.pdf
+uploads/04_*.pdf
+uploads/05_*.pdf

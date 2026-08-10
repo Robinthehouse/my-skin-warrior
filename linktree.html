@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script defer data-domain="myskinwarrior.de" src="https://plausible.io/js/script.js"></script>
 <style>
 :root {
   --paper: #FAF5EF;
@@ -343,6 +344,20 @@ body::after {
   to   { transform: scale(1);    opacity: 1; }
 }
 
+/* Atmende Orbs — nur bei aktivierter Motion, sonst statisch */
+@media (prefers-reduced-motion: no-preference) {
+  body::after { animation: orbDriftA 26s ease-in-out infinite alternate; }
+  .orb-bottom { animation: orbDriftB 32s ease-in-out infinite alternate; }
+}
+@keyframes orbDriftA { to { transform: translate(-6vw, 5vh) scale(1.08); } }
+@keyframes orbDriftB { to { transform: translate(5vw, -4vh) scale(1.06); } }
+
+/* Icon-Microinteraction beim Card-Hover */
+.lc-icon { transition: transform 0.25s cubic-bezier(0.22, 0.61, 0.36, 1); }
+@media (hover: hover) and (pointer: fine) {
+  .link-card:hover .lc-icon { transform: scale(1.06) rotate(-2deg); }
+}
+
 /* ——————————————————————————————————————
    MODAL / QUIZ
 —————————————————————————————————————— */
@@ -444,10 +459,15 @@ body::after {
   cursor: pointer;
   text-align: left;
   line-height: 1.45;
-  transition: border-color 0.15s, background 0.15s, color 0.15s;
+  transition: border-color 0.15s, background 0.15s, color 0.15s, transform 0.15s ease;
   width: 100%;
   -webkit-tap-highlight-color: transparent;
 }
+.quiz-option:active { transform: scale(0.98); }
+
+/* Sanfter Fragenwechsel (Klasse wird von nextQuestion/prevQuestion getoggelt) */
+#questionText, #optionsContainer { transition: opacity 0.18s ease, transform 0.18s ease; }
+.q-swap #questionText, .q-swap #optionsContainer { opacity: 0; transform: translateY(6px); }
 .quiz-option:hover {
   border-color: var(--terracotta);
   background: var(--blush);
@@ -496,7 +516,13 @@ body::after {
 .btn-next.ready:hover { transform: translateY(-1px); }
 
 /* Result */
-.quiz-result { display: none; text-align: center; padding: 4px 0; }
+.quiz-result { display: none; text-align: center; padding: 4px 0; animation: fadeUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) both; }
+.quiz-result .result-score { animation: scorePop 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.15s backwards; }
+@keyframes scorePop {
+  0%   { opacity: 0; transform: scale(0.7); }
+  70%  { transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
 
 .result-icon {
   font-size: 44px;
@@ -827,14 +853,21 @@ function pick(i) {
   document.getElementById('btnNext').className = 'btn-next ready';
 }
 
+function swapQuestion(fn) {
+  var qc = document.getElementById('quizContent');
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { fn(); return; }
+  qc.classList.add('q-swap');
+  setTimeout(function () { fn(); qc.classList.remove('q-swap'); }, 180);
+}
+
 function nextQuestion() {
   if (ans[cur] < 0) return;
-  if (cur < Q.length - 1) { cur++; render(); }
+  if (cur < Q.length - 1) { swapQuestion(function () { cur++; render(); }); }
   else showResult();
 }
 
 function prevQuestion() {
-  if (cur > 0) { cur--; render(); }
+  if (cur > 0) { swapQuestion(function () { cur--; render(); }); }
 }
 
 function showResult() {

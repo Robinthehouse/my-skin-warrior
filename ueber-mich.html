@@ -6,6 +6,9 @@
 <title>Über mich — Robin | My Skin Warrior</title>
 <meta name="description" content="Ich bin Robin, 35 Jahre alt, und lebe seit meiner Teenagerzeit mit Akne inversa. My Skin Warrior ist aus meiner eigenen Geschichte entstanden.">
 <link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="animations.css">
+<script>document.documentElement.classList.add('js');</script>
+<script defer data-domain="myskinwarrior.de" src="https://plausible.io/js/script.js"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -384,6 +387,24 @@
   footer a { color: var(--petrol); text-decoration: none; }
   footer a:hover { text-decoration: underline; }
 
+  /* ---- SEITENSPEZIFISCHE EFFEKTE ---- */
+  /* Foto-Paar: Frames gleiten gegenläufig zusammen */
+  html.js .photo-pair[data-stagger] > :first-child { translate: -14px 14px; }
+  html.js .photo-pair[data-stagger] > :last-child { translate: 14px 14px; }
+  html.js .photo-pair[data-stagger].in > * { translate: 0 0; }
+  /* Partner-Block: bekommt einen Tick mehr Präsenz */
+  html.js [data-stagger] > .partner-block { scale: 0.98; }
+  html.js [data-stagger].in > .partner-block {
+    scale: 1;
+    transition: opacity 0.7s var(--ease-out) var(--rd, 0ms), translate 0.7s var(--ease-out) var(--rd, 0ms), scale 0.7s var(--ease-out) var(--rd, 0ms);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html.js .photo-pair[data-stagger] > *,
+    html.js [data-stagger] > .partner-block { translate: 0 0; scale: 1; transition: none; }
+  }
+  body.motion-off .photo-pair[data-stagger] > *,
+  body.motion-off [data-stagger] > .partner-block { translate: 0 0 !important; scale: 1 !important; transition: none !important; }
+
   /* ---- RESPONSIVE ---- */
   @media (max-width: 680px) {
     .site-header { padding: 0 20px; }
@@ -418,22 +439,22 @@
 <!-- HERO -->
 <div class="wrap">
   <div class="hero">
-    <span class="eyebrow">Über mich</span>
-    <h1>Ich bin Robin.<br><em>Und ich lebe<br>mit dem, was du kennst.</em></h1>
-    <p class="hero-intro">Kein Arzt. Kein Influencer. Nur jemand, der seit über zwanzig Jahren mit Akne inversa lebt und irgendwann aufgehört hat, alleine damit klarzukommen.</p>
-    <div class="hero-rule"></div>
+    <span class="eyebrow reveal">Über mich</span>
+    <h1 class="reveal" style="--rd:60ms">Ich bin Robin.<br><em>Und ich lebe<br>mit dem, was du kennst.</em></h1>
+    <p class="hero-intro reveal" style="--rd:140ms">Kein Arzt. Kein Influencer. Nur jemand, der seit über zwanzig Jahren mit Akne inversa lebt und irgendwann aufgehört hat, alleine damit klarzukommen.</p>
+    <div class="hero-rule line-grow" style="--rd:260ms; transform-origin: left;"></div>
   </div>
 </div>
 
 <!-- HERO FOTOS -->
 <div class="photo-hero">
   <div class="photo-hero-grid" style="grid-template-columns: 1fr;">
-    <div class="photo-frame photo-frame-tall" style="max-width: 520px; margin: 0 auto; width: 100%;">
+    <div class="photo-frame photo-frame-tall reveal reveal-img" style="max-width: 520px; margin: 0 auto; width: 100%;">
       <img src="assets/about/robin-park.jpg" alt="Robin sitzt lachend auf einer Parkbank">
     </div>
   </div>
   <div class="photo-caption-wrap">
-    <p class="photo-caption">So sehe ich die meiste Zeit aus — wenn die Krankheit kurz Pause macht.</p>
+    <p class="photo-caption reveal" style="--rd:200ms">So sehe ich die meiste Zeit aus — wenn die Krankheit kurz Pause macht.</p>
   </div>
 </div>
 
@@ -441,7 +462,7 @@
 <div class="wrap-prose">
 
   <!-- BLOCK 1 -->
-  <div class="section-block">
+  <div class="section-block" data-stagger="90">
     <span class="section-label">Wie es anfing</span>
     <h2>Mit 14 fingen die Beulen an. Niemand wusste, was es war.</h2>
     <p>Ich bin Robin, geboren am 11.11.1990, und seit meiner frühen Teenagerzeit mit Akne inversa (Hidradenitis suppurativa) konfrontiert. Mit 14, 15, 16 kamen die ersten Beulen — hinterm Ohr, am Kopf, auf beiden Seiten. Meine Eltern waren verzweifelt, die Ärzte ratlos. Alles wurde auf Stress geschoben. Auf mich geschoben.</p>
@@ -449,25 +470,25 @@
   </div>
 
   <!-- STATS -->
-  <div class="stat-row">
+  <div class="stat-row" data-stagger="130">
     <div class="stat">
-      <div class="stat-num">20+</div>
+      <div class="stat-num" data-count="20" data-suffix="+">20+</div>
       <div class="stat-label">Jahre mit Akne inversa</div>
     </div>
     <div class="stat">
-      <div class="stat-num">~30</div>
+      <div class="stat-num" data-count="30" data-prefix="~">~30</div>
       <div class="stat-label">Operationen im Gesicht & Kopfbereich</div>
     </div>
     <div class="stat">
-      <div class="stat-num">35</div>
+      <div class="stat-num" data-count="35">35</div>
       <div class="stat-label">Jahre alt — und ich mache weiter</div>
     </div>
   </div>
 
-  <div class="divider"></div>
+  <div class="divider line-grow"></div>
 
   <!-- BLOCK 2 -->
-  <div class="section-block">
+  <div class="section-block" data-stagger="90">
     <span class="section-label">Die schweren Jahre</span>
     <h2>Rund dreißig Eingriffe. Und das Alleingelassenwerden hat am meisten wehgetan.</h2>
     <p>Die Krankheit hat sich vor allem am Kopf und hinter den Ohren ausgebreitet — so nah am Gehör und an Gesichtsnerven, dass viele Chirurgen sich geweigert haben, überhaupt zu operieren. Noteingriffe, Spezialisten, Ablehnungen. Ein Körper, der immer wieder ins Messer musste, weil es keine andere Option gab.</p>
@@ -483,7 +504,7 @@
   </div>
 
   <!-- OP FOTOS -->
-  <div class="photo-pair">
+  <div class="photo-pair" data-stagger="150">
     <div class="photo-pair-frame">
       <img src="assets/about/robin-op-auto.jpg" alt="Robin nach einer Operation mit Verband">
     </div>
@@ -491,12 +512,12 @@
       <img src="assets/about/robin-op-klinik.jpg" alt="Robin mit Verband — nach Eingriff">
     </div>
   </div>
-  <p class="photo-pair-caption">Nach zwei von vielen Eingriffen. Beides bin ich auch.</p>
+  <p class="photo-pair-caption reveal" style="--rd:220ms">Nach zwei von vielen Eingriffen. Beides bin ich auch.</p>
 
-  <div class="divider"></div>
+  <div class="divider line-grow"></div>
 
   <!-- BLOCK 3 -->
-  <div class="section-block">
+  <div class="section-block" data-stagger="90">
     <span class="section-label">Der Wendepunkt</span>
     <h2>Vor sieben Jahren hat jemand nicht aufgehört, an mich zu glauben.</h2>
     <p>Meine Partnerin. Sie hat mir etwas zurückgegeben, das ich längst verloren geglaubt hatte: das Gefühl, gut genug zu sein. Nicht trotz der Krankheit. Einfach so.</p>
@@ -514,15 +535,15 @@
   </div>
 
   <!-- PARTNERIN BERGSEE FOTO -->
-  <div class="photo-inline">
+  <div class="photo-inline reveal reveal-img">
     <img src="assets/about/robin-partnerin-bergsee.jpg" alt="Robin und seine Partnerin mit Wanderrucksäcken vor einem Bergsee">
     <p class="photo-inline-caption">Das Leben passiert trotzdem. Manchmal sogar wegen der Krankheit — weil man aufhört, es aufzuschieben.</p>
   </div>
 
-  <div class="divider"></div>
+  <div class="divider line-grow"></div>
 
   <!-- BLOCK 4 -->
-  <div class="section-block">
+  <div class="section-block" data-stagger="90">
     <span class="section-label">Warum My Skin Warrior</span>
     <h2>Weil ich weiß, dass es ganz vielen genauso geht. Und weil die Aufklärung unterirdisch ist.</h2>
     <p>Viele Menschen wissen noch nicht einmal, dass sie Akne inversa haben. Die Diagnose-Wege dauern oft Jahre. Ärzte haben keine Zeit, kein Verständnis, und bieten meistens nur Antibiotika oder den Schnitt an. Wenn das nicht hilft, wird die Schuld zurückgegeben.</p>
@@ -531,7 +552,7 @@
   </div>
 
   <!-- FINAL CTA -->
-  <div class="final-cta">
+  <div class="final-cta reveal">
     <h3>Was ich mir mit 15 gewünscht hätte, dass jemand zu mir sagt:</h3>
     <p>Du bist gut genug. Du bist nicht schuld. Was mit deinem Körper passiert, ist nicht deine Strafe. Du verdienst genauso viel Nähe, Liebe und Würde wie jeder andere Mensch.</p>
     <p style="font-style:italic; color: var(--terracotta-ink); margin-bottom: 28px;">Das sage ich jetzt dir.</p>
@@ -547,6 +568,8 @@
 <footer>
   <p>© 2026 My Skin Warrior · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="mailto:kontakt@myskinwarrior.de">kontakt@myskinwarrior.de</a></p>
 </footer>
+
+<script src="animations.js"></script>
 
 </body>
 </html>

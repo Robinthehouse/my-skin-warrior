@@ -189,25 +189,46 @@ section { position: relative; }
 .hero-trust { margin-top: var(--s5); display: flex; align-items: center; gap: var(--s3); }
 .hero-trust .dotsep { color: var(--line); }
 
-/* Cover fan */
+/* Cover fan — Signature: „Der ausgeteilte Brief"
+   Load: Cover teilen sich vom Stapel aus (Keyframes, ohne JS-Wartezeit).
+   Scroll: animations.js schreibt --hero-p (0..1), die Karten driften
+   per calc() weiter auseinander. Hover komponiert über translate. */
 .cover-fan { position: relative; height: clamp(380px, 42vw, 560px); }
 .cover-fan .swirl-bg {
   position: absolute; width: 130%; left: -8%; top: -14%; opacity: 0.10;
   filter: saturate(0.9); pointer-events: none; z-index: 0;
 }
+html.js .cover-fan .swirl-bg { animation: fan-fade 1.4s var(--ease) 0.3s backwards; }
 .fan-card {
   position: absolute; border-radius: var(--r-card); overflow: hidden;
   box-shadow: var(--sh-card); border: 1px solid var(--line-soft);
   background: var(--paper);
-  transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease);
+  rotate: calc(var(--fr, 0deg) + var(--hero-p, 0) * var(--drift-r, 0deg));
+  translate: 0 0;
+  transform: translate(calc(var(--hero-p, 0) * var(--drift-x, 0px)), calc(var(--hero-p, 0) * var(--drift-y, 0px)));
+  transition: translate var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease);
 }
+html.js .fan-card { animation: fan-deal 0.85s var(--ease-out) var(--deal-d, 0s) backwards; }
 .fan-card img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.fan-card.c1 { width: 60%; left: 20%; top: 4%; z-index: 5; transform: rotate(-1deg); }
-.fan-card.c2 { width: 50%; left: 2%;  top: 20%; z-index: 4; transform: rotate(-7deg); }
-.fan-card.c3 { width: 50%; right: 0%; top: 16%; z-index: 4; transform: rotate(6deg); }
-.fan-card.c1:hover { transform: rotate(-1deg) translateY(-8px); box-shadow: var(--sh-lift); z-index: 8; }
-.fan-card.c2:hover { transform: rotate(-7deg) translateY(-8px); box-shadow: var(--sh-lift); z-index: 8; }
-.fan-card.c3:hover { transform: rotate(6deg) translateY(-8px); box-shadow: var(--sh-lift); z-index: 8; }
+.fan-card.c1 { width: 60%; left: 20%; top: 4%; z-index: 5; --fr: -1deg; --deal-y: 5%; --deal-d: 0.08s; --drift-y: -12px; }
+.fan-card.c2 { width: 50%; left: 2%;  top: 20%; z-index: 4; --fr: -7deg; --deal-x: 36%; --deal-y: -20%; --deal-d: 0.32s; --drift-x: -22px; --drift-y: 14px; --drift-r: -3deg; }
+.fan-card.c3 { width: 50%; right: 0%; top: 16%; z-index: 4; --fr: 6deg; --deal-x: -46%; --deal-y: -12%; --deal-d: 0.46s; --drift-x: 22px; --drift-y: 10px; --drift-r: 3deg; }
+.fan-card:hover { translate: 0 -8px; box-shadow: var(--sh-lift); z-index: 8; }
+@keyframes fan-deal {
+  from { opacity: 0; translate: var(--deal-x, 0%) var(--deal-y, 0%); rotate: -2deg; }
+  to   { opacity: 1; translate: 0 0; rotate: var(--fr, 0deg); }
+}
+@keyframes fan-fade { from { opacity: 0; } }
+@keyframes badge-pop {
+  0%   { opacity: 0; scale: 0.6; }
+  70%  { scale: 1.07; }
+  100% { opacity: 1; scale: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js .fan-card, html.js .fan-badge, html.js .cover-fan .swirl-bg { animation: none; }
+}
+body.motion-off .fan-card, body.motion-off .fan-badge, body.motion-off .cover-fan .swirl-bg { animation: none !important; }
+html.js .fan-badge { animation: badge-pop 0.5s var(--ease-out) 1s backwards; }
 .fan-badge {
   position: absolute; z-index: 9; top: 0; left: 16%;
   transform: translateY(-50%) rotate(-1deg); white-space: nowrap;
@@ -226,8 +247,14 @@ section { position: relative; }
 .empathie p strong { color: var(--fg1); font-weight: 600; }
 .pullquote {
   margin: var(--s7) auto 0; max-width: 620px; text-align: left;
-  border-left: 3px solid var(--accent); padding: var(--s2) 0 var(--s2) var(--s5);
+  position: relative; padding: var(--s2) 0 var(--s2) var(--s5);
 }
+.pullquote::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+  background: var(--accent); border-radius: 2px;
+}
+html.js .pullquote::before { transform: scaleY(0); transform-origin: top; transition: transform 0.8s var(--ease-out) 0.1s; }
+html.js .pullquote.in::before { transform: scaleY(1); }
 .pullquote .serif-italic {
   font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.32; color: var(--fg1);
 }
@@ -356,8 +383,12 @@ section { position: relative; }
   position: relative; width: 200px; filter: drop-shadow(0 20px 40px rgba(43,36,32,0.18));
 }
 .gratis-cover {
-  width: 100%; border-radius: var(--r-card); transform: rotate(-2deg);
+  width: 100%; border-radius: var(--r-card); rotate: -2deg;
   border: 1px solid var(--line-soft);
+  transition: rotate 0.45s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .gratis-cover-wrap:hover .gratis-cover { rotate: 0deg; }
 }
 .gratis-cover-badge {
   position: absolute; top: var(--s3); right: calc(-1 * var(--s3));
@@ -502,7 +533,8 @@ section { position: relative; }
    ABSCHLUSS
    ============================================================ */
 .closer { background: var(--espresso); color: var(--fg-on-ink); padding: var(--s10) 0; text-align: center; position: relative; overflow: hidden; }
-.closer .swirl-bg { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 60%; opacity: 0.08; pointer-events: none; }
+.closer .swirl-bg { position: absolute; left: 50%; top: 50%; translate: -50% -50%; width: 60%; opacity: 0.08; pointer-events: none; }
+html.js .closer .swirl-bg { animation: spin-slow 140s linear infinite; }
 .closer-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
 .closer .display { color: var(--fg-on-ink); font-size: clamp(2.4rem, 5vw, 4rem); }
 .closer .display em { color: var(--accent); font-style: italic; font-weight: 500; }
@@ -531,12 +563,105 @@ section { position: relative; }
 .footer-bottom .small a:hover { color: var(--accent-ink); }
 
 /* ============================================================
-   REVEAL
+   REVEAL — ausgelagert nach animations.css
    ============================================================ */
-.reveal { opacity: 0; transform: translateY(22px); }
-.reveal.in { opacity: 1; transform: none; transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out); transition-delay: var(--rd, 0ms); }
-body.motion-off .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
-@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+/* ============================================================
+   SCROLL-EFFEKTE & MICRO-INTERACTIONS (index)
+   ============================================================ */
+
+/* ---- Carousel: Cards staggern über den Parent (nie einzeln per IO,
+   sonst feuern Reveals beim horizontalen Wischen) ---- */
+html.js .carousel-viewport.reveal { opacity: 1; transform: none; }
+html.js .carousel-viewport.reveal .heft-card { opacity: 0; translate: 0 20px; }
+html.js .carousel-viewport.reveal.in .heft-card {
+  opacity: 1; translate: 0 0;
+  transition: opacity 0.65s var(--ease-out) var(--cd, 0ms), translate 0.65s var(--ease-out) var(--cd, 0ms),
+              transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease);
+}
+html.js .carousel-viewport.reveal.in .heft-card:nth-child(2) { --cd: 90ms; }
+html.js .carousel-viewport.reveal.in .heft-card:nth-child(3) { --cd: 180ms; }
+html.js .carousel-viewport.reveal.in .heft-card:nth-child(4) { --cd: 270ms; }
+html.js .carousel-viewport.reveal.in .heft-card:nth-child(5) { --cd: 360ms; }
+.carousel-viewport {
+  mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+}
+.heft-cover img { transition: scale 0.5s var(--ease-out); }
+@media (hover: hover) and (pointer: fine) {
+  .heft-card:hover .heft-cover img { scale: 1.06; }
+}
+
+/* ---- Checklist: Häkchen poppen nach dem Stagger ein ---- */
+html.js .checklist[data-stagger] .ic { scale: 0.4; opacity: 0; }
+html.js .checklist[data-stagger].in .ic {
+  scale: 1; opacity: 1;
+  transition: scale 0.5s var(--ease-out) calc(var(--rd, 0ms) + 150ms), opacity 0.3s ease calc(var(--rd, 0ms) + 150ms);
+}
+
+/* ---- Stimmen: Pinnwand-Anmutung + Hover-Lift ---- */
+.voice.accent { rotate: -0.6deg; }
+@media (hover: hover) and (pointer: fine) {
+  .voice { transition: translate var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease); }
+  .voice:hover { translate: 0 -5px; box-shadow: var(--sh-card); }
+}
+
+/* ---- FAQ: Antwort-Inhalt faded beim Öffnen ein (Height-Mechanik unangetastet) ---- */
+html.js .faq-a-inner { opacity: 0; translate: 0 6px; transition: opacity 0.45s var(--ease) 0.08s, translate 0.45s var(--ease-out) 0.08s; }
+html.js .faq-item.open .faq-a-inner { opacity: 1; translate: 0 0; }
+
+/* ---- Formular-Success: Karte blendet ein, Haken zeichnet sich ---- */
+.gratis-success .success-check { flex: 0 0 auto; margin-top: 2px; }
+.gratis-success .success-check circle,
+.gratis-success .success-check path {
+  fill: none; stroke: var(--petrol); stroke-width: 2.2;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+html.js .gratis-form.done .gratis-success { animation: success-in 0.5s var(--ease-out) both; }
+html.js .gratis-form.done .success-check circle { stroke-dasharray: 1; animation: draw-stroke 0.6s var(--ease) 0.15s both; }
+html.js .gratis-form.done .success-check path { stroke-dasharray: 1; animation: draw-stroke 0.4s var(--ease) 0.65s both; }
+@keyframes success-in { from { opacity: 0; scale: 0.96; } }
+@keyframes draw-stroke { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes spin-slow { to { rotate: 1turn; } }
+
+/* ---- Scroll-getriebene Effekte (CSS-only, off-main-thread):
+   Video setzt sich, Bundle-Flatlay parallaxt. Fallback = Endzustand. ---- */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    html.js body:not(.motion-off) .vb-video {
+      animation: vb-settle linear both;
+      animation-timeline: view();
+    }
+    html.js body:not(.motion-off) .bundle-hero img {
+      scale: 1.14;
+      animation: parallax-drift linear both;
+      animation-timeline: view();
+    }
+  }
+}
+@keyframes vb-settle { from { scale: 1.12; } to { scale: 1; } }
+@keyframes parallax-drift { from { translate: 0 -4.5%; } to { translate: 0 4.5%; } }
+
+/* ---- Reduced Motion / motion-off für alle index-Effekte ---- */
+@media (prefers-reduced-motion: reduce) {
+  html.js .pullquote::before { transform: none; transition: none; }
+  html.js .carousel-viewport.reveal .heft-card { opacity: 1; translate: 0 0; }
+  html.js .checklist[data-stagger] .ic { scale: 1; opacity: 1; }
+  html.js .faq-a-inner { opacity: 1; translate: 0 0; transition: none; }
+  html.js .closer .swirl-bg,
+  html.js .gratis-form.done .gratis-success,
+  html.js .gratis-form.done .success-check circle,
+  html.js .gratis-form.done .success-check path { animation: none; }
+  .heft-cover img, .gratis-cover, .voice { transition: none; }
+}
+body.motion-off .pullquote::before { transform: none !important; transition: none !important; }
+body.motion-off .carousel-viewport.reveal .heft-card { opacity: 1 !important; translate: 0 0 !important; transition: none !important; }
+body.motion-off .checklist[data-stagger] .ic { scale: 1 !important; opacity: 1 !important; transition: none !important; }
+body.motion-off .faq-a-inner { opacity: 1 !important; translate: 0 0 !important; transition: none !important; }
+body.motion-off .closer .swirl-bg,
+body.motion-off .gratis-form.done .gratis-success,
+body.motion-off .gratis-form.done .success-check circle,
+body.motion-off .gratis-form.done .success-check path { animation: none !important; }
 
 /* ============================================================
    RESPONSIVE
