@@ -181,8 +181,8 @@
   var menuToggle = document.querySelector('.menu-toggle');
   if (menuToggle) {
     menuToggle.addEventListener('click', function () {
-      var reihe = document.querySelector('#reihe');
-      if (reihe) reihe.scrollIntoView({ behavior: 'smooth' });
+      var target = document.querySelector(menuToggle.getAttribute('data-jump') || '#wie');
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
     });
   }
 })();

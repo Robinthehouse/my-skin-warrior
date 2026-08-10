@@ -590,5 +590,34 @@
 
 <script src="animations.js"></script>
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://myskinwarrior.de/ueber-mich.html#robin",
+      "name": "Robin",
+      "url": "https://myskinwarrior.de/ueber-mich.html",
+      "description": "Robin lebt seit seiner Teenagerzeit mit Akne inversa (Hidradenitis suppurativa) und hat My Skin Warrior aus eigener Betroffenheit gegründet — die Hefte und das Tagebuch für Menschen mit HS.",
+      "knowsAbout": [
+        "Akne inversa",
+        "Hidradenitis suppurativa",
+        "Leben mit chronischer Hauterkrankung",
+        "Symptomdokumentation"
+      ],
+      "worksFor": { "@id": "https://myskinwarrior.de/#org" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://myskinwarrior.de/" },
+        { "@type": "ListItem", "position": 2, "name": "Über mich", "item": "https://myskinwarrior.de/ueber-mich.html" }
+      ]
+    }
+  ]
+}
+</script>
+
 </body>
 </html>
